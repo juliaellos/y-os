@@ -1,11 +1,79 @@
-# MazyOS — Sistema operacional do negócio
+# Júlia y Castro — Y OS
 
-Sua empresa roda em cima desse arquivo. Aqui ficam as regras de operação
-do MazyOS — como o Claude lê o contexto, aprende com correções, mantém
-tudo atualizado e cria skills novas conforme a operação evolui.
+> Molde do CLAUDE.md aplicado a **criador solo** — uma pessoa, uma marca,
+> audiência como ativo principal. O sistema gira em torno do que você
+> produz e publica.
 
-Esse arquivo é editável. Quando o `/instalar` rodar, ele complementa o
-final dessa página com as regras específicas do seu negócio.
+## O que é esse workspace
+
+Operação da Y OS, consultoria de IA de Júlia y Castro. Aqui ela estrutura
+a empresa, produz conteúdo, define posicionamento e organiza a aquisição
+de clientes.
+
+**Estrutura de pastas:**
+- `_memoria/` — quem eu sou, como falo, o que tá em foco
+- `identidade/` — cores, fontes, logo, padrão visual
+- `marketing/` — conteúdo, SEO, campanhas (saída das skills)
+- `saidas/` — análises, emails, documentos pontuais
+- `produtos/` — meus produtos próprios (cursos, ebooks, ofertas)
+- `audiencia/` — listas, dados, contatos da minha base
+- `dados/` — arquivos a analisar (CSV, PDF, planilha)
+- `scripts/` — utilitários (gerar imagem, postar, render)
+- `tarefas.md` — o que tá em jogo agora
+
+## Quem sou
+
+Sou Júlia y Castro, 25 anos. Estou estruturando a Y OS, uma consultoria
+de IA, do zero — ainda na fase de abertura da empresa.
+
+## O que produzo
+
+- Conteúdo de prospecção e presença (a definir formato conforme a marca evolui)
+- Copy para mensagens de prospecção de clientes
+- Consultoria de IA aplicada a marketing e operação, nas mesmas frentes do MazyOS:
+  - Conteúdo e SEO (carrosséis, posts, blog, SEO/GEO, avaliações do Google)
+  - Anúncios pagos (Google Ads, relatórios de performance)
+  - Produção e operação (análise de dados, automação de rotinas, emails)
+
+## Minha audiência
+
+Perfil de cliente ideal ainda não definido — a construir junto ao longo
+do projeto, sem persona genérica por enquanto.
+
+## Tom de voz
+
+Ainda não definido — sem exemplo de escrita real disponível ainda. Calibrar
+conforme Júlia for produzindo conteúdo real.
+
+Evitar: jargão de guru (ex. "alavancar", "sinergia"); emoji em email formal.
+
+## Posicionamento
+
+Em construção.
+
+## Regras do sistema
+
+- Conteúdo novo salvar em `marketing/conteudo/<tipo>-<tema>-<data>/`
+- Cada lançamento de produto cria pasta em `produtos/<nome>/`
+- Prioridade atual: estruturação da empresa e aquisição de clientes (ver `_memoria/estrategia.md`)
+
+## Ferramentas conectadas
+
+- [ ] Notion
+- [ ] Canva
+- [ ] Google Calendar
+- [ ] Meta Ads
+- [ ] Google Ads
+
+*(Marcar conforme for instalando os MCPs)*
+
+---
+
+# Regras de operação do MazyOS
+
+Aqui ficam as regras de operação do MazyOS — como o Claude lê o contexto,
+aprende com correções, mantém tudo atualizado e cria skills novas conforme
+a operação evolui.
 
 ---
 
@@ -113,3 +181,4 @@ Quando o usuário pedir skill nova:
 4. Se a skill precisar de arquivos de apoio (templates, exemplos),
    criar dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code
+</content>

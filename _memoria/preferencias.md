@@ -5,8 +5,15 @@
 
 ## Tom de voz
 
+Ainda não definido — sem exemplo de escrita real ainda. A calibrar ao longo do projeto conforme Júlia for produzindo conteúdo.
+
 ## O que evitar
 
+- Jargão de guru (ex: "alavancar", "sinergia", frases motivacionais vazias)
+- Emoji em email formal
+
 ## Estilo geral
+
+Em definição.
 
 ## Preferências adicionais
