@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Inter", sans-serif; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bg-dark { background: #16141F; color: #F2F0F5; }
+  .bg-alt { background: #201D2E; color: #F2F0F5; }
+  .bg-purple { background: #5B3FA0; color: #F2F0F5; }
+  .bg-accent { background: #C6F135; color: #16141F; }
+
+  .logo-mark {
+    position: absolute;
+    top: 56px;
+    left: 64px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    opacity: 0.85;
+    z-index: 3;
+  }
+  .bg-purple .logo-mark, .bg-accent .logo-mark { opacity: 0.75; }
+
+  .counter {
+    position: absolute;
+    top: 56px;
+    right: 64px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    opacity: 0.45;
+    z-index: 3;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 90px;
+  }
+
+  .kicker {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: #C6F135;
+    margin-bottom: 22px;
+  }
+  .bg-purple .kicker { color: #C6F135; }
+  .bg-accent .kicker { color: #16141F; opacity: 0.7; }
+
+  .ruler {
+    width: 70px;
+    height: 4px;
+    background: #C6F135;
+    margin: 26px 0;
+    border-radius: 2px;
+  }
+  .bg-accent .ruler { background: #16141F; }
+
+  h1.title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 88px;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+  h2.h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .hl { color: #C6F135; }
+
+  p.body {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.5;
+    max-width: 820px;
+    opacity: 0.85;
+    margin-top: 8px;
+  }
+  p.subtitle {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin-top: 20px;
+    max-width: 760px;
+  }
+  .number-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  .number-giant {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 300px;
+    line-height: 1;
+    color: #C6F135;
+    letter-spacing: -0.02em;
+  }
+  .number-unit {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 110px;
+    line-height: 1;
+    color: #C6F135;
+    letter-spacing: -0.02em;
+  }
+
+  /* Tipo C — cards numerados (estrutura didática) */
+  .cards { display: flex; flex-direction: column; gap: 22px; margin-top: 40px; }
+  .card {
+    background: #201D2E;
+    border: 1px solid #2a2636;
+    border-radius: 14px;
+    padding: 32px 36px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .bg-alt .card { background: #16141F; }
+  .card-num {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1;
+    color: #C6F135;
+    min-width: 54px;
+    letter-spacing: -0.02em;
+  }
+  .card-body { flex: 1; }
+  .card-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .card-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.45;
+    opacity: 0.8;
+  }
+
+  .cta-headline {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 68px;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+  .cta-sub {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    margin-top: 22px;
+    opacity: 0.85;
+  }
+  .cta-question {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(242,240,245,0.25);
+    max-width: 700px;
+  }
+
+  .duo-images { display: flex; gap: 24px; margin-top: 36px; }
+  .duo-images img {
+    width: 380px;
+    height: 475px;
+    border-radius: 14px;
+    border: 1px solid #2a2636;
+    object-fit: cover;
+  }
+
+  .logo-final {
+    position: absolute;
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 44px;
+    z-index: 3;
+  }
+</style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — CAPA (roxo sólido) — Tipo A -->
+  <div class="slide bg-purple">
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="counter">01</div>
+    <div class="content">
+      <div class="kicker">Bastidores</div>
+      <h1 class="title">Quanto tempo leva criar um carrossel</h1>
+      <p class="subtitle">Cronometrei os dois jeitos que já usei pra fazer o mesmo post</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 — O jeito manual — Tipo A -->
+  <div class="slide bg-alt">
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="counter">02</div>
+    <div class="content">
+      <div class="kicker">O jeito manual</div>
+      <h2 class="h2">Um carrossel bem feito leva a tarde inteira</h2>
+      <div class="ruler"></div>
+      <p class="body">Pesquisar o tema, escrever o texto de cada slide, montar no Canva, ajustar fonte e cor pra não sair torto, exportar um por um. Três, quatro horas, e olha que eu já fiz isso um monte de vezes.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — NÚMERO — Tipo A -->
+  <div class="slide bg-dark">
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="counter">03</div>
+    <div class="content">
+      <div class="kicker">O jeito que uso agora</div>
+      <div class="number-row">
+        <div class="number-giant">12</div>
+        <div class="number-unit">minutos</div>
+      </div>
+      <p class="body">É o tempo entre escrever o roteiro e ter os 5 slides prontos pra postar, já na cara da marca. O texto eu escrevo uma vez, o design se aplica sozinho.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 — O que muda na prática — Tipo C (cards numerados) -->
+  <div class="slide bg-dark">
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="counter">04</div>
+    <div class="content">
+      <div class="kicker">O que muda no meio</div>
+      <h2 class="h2">As 3 etapas que somem</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-num">1</div>
+          <div class="card-body">
+            <div class="card-title">Montar slide por slide</div>
+            <div class="card-text">Agora o texto entra uma vez e a arte se aplica em todos de uma vez.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num">2</div>
+          <div class="card-body">
+            <div class="card-title">Decidir cor e fonte a cada post</div>
+            <div class="card-text">Já estão definidas. Não tem o que escolher na hora de produzir.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num">3</div>
+          <div class="card-body">
+            <div class="card-title">Exportar um arquivo por vez</div>
+            <div class="card-text">Saem prontos no tamanho do Instagram, numerados na ordem.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 — Pra onde vai o tempo — Tipo A -->
+  <div class="slide bg-alt">
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="counter">05</div>
+    <div class="content">
+      <div class="kicker">Pra onde vai o tempo</div>
+      <h2 class="h2">Essas 3 horas não viram outro post</h2>
+      <div class="ruler"></div>
+      <p class="body">Viram tempo pra atender cliente, fechar venda, resolver o que só o dono do negócio resolve. É isso que ninguém terceiriza.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 — DUO com exemplo — Tipo B -->
+  <div class="slide bg-dark">
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="counter">06</div>
+    <div class="content">
+      <div class="kicker">Na prática</div>
+      <h2 class="h2">Isso rodando pra outro negócio</h2>
+      <div class="ruler"></div>
+      <p class="body">Exemplo pra um restaurante de delivery, roteiro escrito uma vez e arte aplicada no mesmo fluxo que uso aqui.</p>
+      <div class="duo-images">
+        <img src="exemplo-mock-01.png" alt="Exemplo de slide de carrossel para restaurante de delivery">
+        <img src="exemplo-mock-02.png" alt="Exemplo de slide de carrossel com oferta para restaurante de delivery">
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 — O APLICÁVEL (novo, modelo Thaís) — Tipo A, alt com acento -->
+  <div class="slide bg-alt">
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="counter">07</div>
+    <div class="content">
+      <div class="kicker">Se for começar hoje</div>
+      <h2 class="h2">Comece fechando<br><span class="hl">cor e fonte</span></h2>
+      <div class="ruler"></div>
+      <p class="body">Antes de automatizar qualquer coisa, escolha duas cores e uma fonte e não mude mais. Metade do tempo que você perde montando post é decisão de design que já devia estar tomada.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 — CTA FINAL (roxo sólido) — Tipo A -->
+  <div class="slide bg-purple">
+    <div class="content">
+      <div class="cta-headline">É isso que eu construo<br>pra quem eu atendo</div>
+      <div class="cta-sub">E é o que eu uso aqui também</div>
+      <div class="cta-question">E no seu negócio, quanto tempo leva?</div>
+    </div>
+    <img class="logo-final" src="logo-claro.png" alt="Júlia y Castro">
+  </div>
+
+</body>
+</html>

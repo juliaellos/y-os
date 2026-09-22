@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Tipografia — Canal Júlia y Castro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #eee;
+    font-family: -apple-system, system-ui, sans-serif;
+    padding: 32px;
+  }
+  .grid {
+    display: grid;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+  .card-label {
+    padding: 10px 22px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #221f1a;
+    color: #fff;
+  }
+  .preview { padding: 30px 26px; }
+  .preview h2 { margin: 0 0 10px; font-size: 30px; line-height: 1.15; }
+  .preview p { margin: 0; font-size: 15px; line-height: 1.6; color: #444; max-width: 60ch; }
+  .fam-label { font-size: 12px; color: #888; margin-top: 14px; font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-label">A — Fraunces + Inter</div>
+    <div class="preview">
+      <h2 style="font-family:'Fraunces',Georgia,serif; font-weight:700;">Como vender mais usando IA no seu negócio</h2>
+      <p style="font-family:'Inter',sans-serif;">Este parágrafo usa Inter pro corpo — legibilidade alta em telas pequenas, boa em legendas de carrossel e blocos de texto mais longos. Tom acolhedor, editorial, confiável.</p>
+      <div class="fam-label">Título: Fraunces 700 · Corpo: Inter 400/600</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">B — Space Grotesk + Inter</div>
+    <div class="preview">
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700;">Como vender mais usando IA no seu negócio</h2>
+      <p style="font-family:'Inter',sans-serif;">Este parágrafo usa Inter pro corpo — legibilidade alta em telas pequenas, boa em legendas de carrossel e blocos de texto mais longos. Tom mais atual e tech, combina com ferramentas e IA.</p>
+      <div class="fam-label">Título: Space Grotesk 700 · Corpo: Inter 400/600</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">C — Libre Baskerville + Source Sans 3</div>
+    <div class="preview">
+      <h2 style="font-family:'Libre Baskerville',Georgia,serif; font-weight:700;">Como vender mais usando IA no seu negócio</h2>
+      <p style="font-family:'Source Sans 3',sans-serif;">Este parágrafo usa Source Sans 3 pro corpo — legibilidade alta, tom mais formal e discreto, menos "IA genérica" no visual geral da marca.</p>
+      <div class="fam-label">Título: Libre Baskerville 700 · Corpo: Source Sans 3 400/600</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

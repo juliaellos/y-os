@@ -4,7 +4,7 @@
 > Preenchido pelo `/instalar` — você pode editar a qualquer momento.
 
 **Nome:** Júlia y Castro (25 anos)
-**Negócio:** Y OS
+**Negócio:** Júlia y Castro (consultoria, pessoa física/MEI) — "Y OS" é o nome do produto futuro (curso/sistema), não da empresa (correção em 2026-09-14)
 **O que faz:** Consultoria de IA aplicada a marketing e operação de negócios — empresa em fase de estruturação/abertura
 **Perfil:** Solopreneur / consultoria em construção
 **Atende clientes:** Dono(a) de pequeno negócio ou profissional de marketing solo/júnior que hoje faz manual (ou terceiriza caro) o que a Y OS automatiza com IA
@@ -34,3 +34,5 @@ mesmas frentes que o MazyOS automatiza:
 ## Contexto adicional
 - Empresa recém-iniciada, posicionamento de serviço definido em 2026-09-12: mesmas frentes do MazyOS (conteúdo/SEO, ads pagos, produção).
 - Persona definida em 2026-09-13 a partir do planejamento do canal do YouTube — ainda não validada com audiência real, revisar conforme os primeiros vídeos forem publicados.
+- Júlia já teve uma empresa com posicionamento quase idêntico à consultoria atual: **ELLOS | Estratégia & IA** (COO & Co-Founder, jun/2025-abr/2026, 11 meses) — "estratégia, automação e IA aplicada a negócios, voltada a PMEs". A consultoria atual é uma continuação desse tipo de operação, não uma primeira tentativa (identificado em 2026-09-14 a partir do perfil do LinkedIn).
+- Emprego CLT atual: Estrategista de Marketing na Bread King Franchising (mai/2026-presente). Decisão de posicionamento (2026-09-14): perfis públicos (LinkedIn, redes) devem focar só na marca pessoal Júlia y Castro / Y OS — não misturar identidade com o cargo CLT.

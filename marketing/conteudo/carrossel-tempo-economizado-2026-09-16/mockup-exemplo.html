@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Inter", sans-serif; }
+
+  .mock {
+    width: 540px;
+    height: 675px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    color: #F2F0F5;
+  }
+  .mock::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(22,20,31,0.35) 0%, rgba(22,20,31,0.55) 55%, rgba(22,20,31,0.9) 100%);
+    z-index: 1;
+  }
+  .mock .logo-mark, .mock .content, .mock .handle {
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo-mark {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    height: 96px;
+    width: 96px;
+    object-fit: contain;
+    opacity: 0.95;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 48px 40px;
+  }
+
+  .kicker {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: #C6F135;
+    margin-bottom: 14px;
+  }
+  .ruler {
+    width: 42px;
+    height: 3px;
+    background: #C6F135;
+    margin: 16px 0;
+    border-radius: 2px;
+  }
+  h2.h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  p.body {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 420px;
+    opacity: 0.85;
+    margin-top: 6px;
+  }
+  .number-giant {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 150px;
+    line-height: 1;
+    color: #C6F135;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+
+  <!-- MOCK 1 -->
+  <div class="mock" style="background-image: url('marmita-slide1.png');">
+    <img class="logo-mark" src="sabor-do-bairro-logo.png" alt="Sabor do Bairro">
+    <div class="content">
+      <div class="kicker">Cardápio da semana</div>
+      <h2 class="h2">Terça é dia de marmita de forno</h2>
+      <div class="ruler"></div>
+      <p class="body">Arroz, feijão, frango assado e legumes da estação. Pedido até as 11h chega na hora do almoço.</p>
+    </div>
+  </div>
+
+  <!-- MOCK 2 -->
+  <div class="mock" style="background-image: url('marmita-slide2.png');">
+    <img class="logo-mark" src="sabor-do-bairro-logo.png" alt="Sabor do Bairro">
+    <div class="content">
+      <div class="kicker">Combo do mês</div>
+      <div class="number-giant">15%</div>
+      <p class="body">De desconto em qualquer combo acima de duas marmitas, direto pelo WhatsApp.</p>
+    </div>
+  </div>
+
+</body>
+</html>

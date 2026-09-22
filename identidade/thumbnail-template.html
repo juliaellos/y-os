@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  Template de thumbnail — Júlia y Castro (1280x720, padrão YouTube)
+
+  Como usar pra cada vídeo novo:
+  1. Trocar o texto de .kicker e .title
+  2. Trocar o conteúdo de .screen-panel por uma <img> com o print real
+  3. Trocar o conteúdo de .face-panel por uma <img> com o recorte de rosto
+  4. Renderizar com Playwright em viewport 1280x720
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1280px;
+    height: 720px;
+    background: #16141F;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+  }
+  .frame {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: #16141F;
+    overflow: hidden;
+  }
+
+  /* Painel de print de tela (direita) */
+  .screen-panel {
+    position: absolute;
+    right: 56px;
+    top: 130px;
+    width: 620px;
+    height: 460px;
+    background: #201D2E;
+    border: 1px solid #3a3450;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .screen-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .screen-panel .tag {
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    background: #C6F135;
+    color: #16141F;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    z-index: 2;
+  }
+
+  /* Recorte de rosto (esquerda-baixo) */
+  .face-panel {
+    position: absolute;
+    left: 56px;
+    bottom: 32px;
+    width: 380px;
+    height: 380px;
+    background: linear-gradient(180deg, #5B3FA0 0%, #3a2870 100%);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .face-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Título */
+  .title-block {
+    position: absolute;
+    left: 56px;
+    top: 60px;
+    width: 460px;
+  }
+  .kicker {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #C6F135;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.08;
+    color: #F2F0F5;
+  }
+
+  /* Logo */
+  .logo-mark {
+    position: absolute;
+    right: 56px;
+    bottom: 28px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #F2F0F5;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+
+    <div class="title-block">
+      <div class="kicker">Tutorial</div>
+      <div class="title">Carrossel de Instagram com IA</div>
+    </div>
+
+    <div class="screen-panel">
+      <span class="tag">RESULTADO</span>
+      <!-- <img src="print-do-carrossel.png"> -->
+    </div>
+
+    <div class="face-panel">
+      <!-- <img src="rosto.png"> -->
+    </div>
+
+    <div class="logo-mark">Júlia y Castro</div>
+  </div>
+</body>
+</html>
