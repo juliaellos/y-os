@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  Prévia de recorte do banner. Uso: previa.html?img=banner-a-com-a-sua-cara
+  Medidas do YouTube (banner de 2560 x 1440):
+    TV          2560 x 1440 (tudo)
+    Computador  2560 x 423  (faixa do meio, largura inteira)
+    Celular     1546 x 423  (faixa do meio, centro)
+    Área segura 1235 x 338  (aparece em todos)
+-->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1600px; background: #0c0b10; color: #F2F0F5; font-family: "Inter", sans-serif; padding: 48px 40px 56px; }
+
+  .head { margin-bottom: 30px; }
+  .head .k { font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.5; }
+  .head h1 { font-family: "Space Grotesk", sans-serif; font-size: 34px; letter-spacing: -0.02em; margin-top: 10px; }
+
+  .fig { position: relative; width: 1520px; height: 855px; margin-top: 44px; }
+  .fig img { width: 100%; height: 100%; display: block; }
+  .dim { position: absolute; left: 0; width: 100%; background: rgba(8,7,12,0.55); }
+  .rect { position: absolute; }
+  .tag {
+    position: absolute;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    color: #0c0b10;
+  }
+
+  .c-tv { --c: #F2F0F5; }
+  .c-desk { --c: #5CC8FF; }
+  .c-mob { --c: #C6F135; }
+  .c-safe { --c: #FF7A9C; }
+  .rect.c-tv, .rect.c-desk, .rect.c-mob { border: 3px solid var(--c); }
+  .rect.c-safe { border: 3px dashed var(--c); }
+  .tag { background: var(--c); }
+
+  .legend { display: flex; gap: 34px; margin-top: 22px; font-size: 16px; font-weight: 500; opacity: 0.85; }
+  .legend span { display: inline-flex; align-items: center; gap: 10px; }
+  .legend i { width: 14px; height: 14px; border-radius: 3px; background: var(--c); display: inline-block; }
+
+  h2 { font-family: "Space Grotesk", sans-serif; font-size: 24px; letter-spacing: -0.01em; margin: 56px 0 6px; }
+  .note { font-size: 16px; opacity: 0.6; margin-bottom: 26px; }
+  .crop-label { font-weight: 700; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; color: var(--c); }
+  .crop { position: relative; overflow: hidden; border-radius: 6px; outline: 1px solid rgba(242,240,245,0.12); }
+  .crop img { position: absolute; display: block; }
+  .row { display: flex; gap: 40px; margin-top: 36px; align-items: flex-start; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="k">Banner do YouTube · prévia de recorte</div>
+    <h1 id="title"></h1>
+  </div>
+
+  <div class="fig" id="fig">
+    <img id="full" alt="">
+  </div>
+  <div class="legend">
+    <span class="c-tv"><i></i>TV: aparece o banner inteiro</span>
+    <span class="c-desk"><i></i>Computador: só a faixa do meio</span>
+    <span class="c-mob"><i></i>Celular: a faixa do meio, cortada nas laterais</span>
+    <span class="c-safe"><i></i>Área segura: aparece em todos</span>
+  </div>
+
+  <h2>O que aparece em cada aparelho</h2>
+  <p class="note">Cada recorte na proporção em que o YouTube mostra.</p>
+
+  <div class="c-desk">
+    <div class="crop-label">Computador · 2560 × 423</div>
+    <div class="crop" data-x="0" data-y="508.5" data-w="2560" data-h="423" data-out="1520"></div>
+  </div>
+
+  <div class="row">
+    <div class="c-tv">
+      <div class="crop-label">TV · 2560 × 1440</div>
+      <div class="crop" data-x="0" data-y="0" data-w="2560" data-h="1440" data-out="740"></div>
+    </div>
+    <div class="c-mob">
+      <div class="crop-label">Celular · 1546 × 423</div>
+      <div class="crop" data-x="507" data-y="508.5" data-w="1546" data-h="423" data-out="740"></div>
+    </div>
+  </div>
+
+<script>
+  const TITLES = {
+    'banner-a-com-a-sua-cara': 'Opção A · Marketing com IA, com a sua cara',
+    'banner-b-junto-com-voce': 'Opção B · A IA trabalhando junto com você no marketing',
+  };
+  const name = new URLSearchParams(location.search).get('img') || 'banner-a-com-a-sua-cara';
+  const src = name + '.png';
+  document.getElementById('title').textContent = TITLES[name] || name;
+  document.getElementById('full').src = src;
+
+  // Marcações sobre o banner inteiro (escala 1520 / 2560).
+  const S = 1520 / 2560;
+  const fig = document.getElementById('fig');
+  const add = (html) => fig.insertAdjacentHTML('beforeend', html);
+  const px = (n) => (n * S) + 'px';
+
+  add(`<div class="dim" style="top:0; height:${px(508.5)}"></div>`);
+  add(`<div class="dim" style="top:${px(931.5)}; height:${px(508.5)}"></div>`);
+  add(`<div class="rect c-tv" style="left:0; top:0; width:${px(2560)}; height:${px(1440)}"></div>`);
+  add(`<div class="rect c-desk" style="left:0; top:${px(508.5)}; width:${px(2560)}; height:${px(423)}"></div>`);
+  add(`<div class="rect c-mob" style="left:${px(507)}; top:${px(508.5)}; width:${px(1546)}; height:${px(423)}"></div>`);
+  add(`<div class="rect c-safe" style="left:${px(662.5)}; top:${px(551)}; width:${px(1235)}; height:${px(338)}"></div>`);
+  add(`<div class="tag c-tv" style="left:14px; top:14px">TV · 2560 × 1440</div>`);
+  add(`<div class="tag c-desk" style="left:0; top:calc(${px(508.5)} - 30px)">Computador · 2560 × 423</div>`);
+  add(`<div class="tag c-mob" style="right:calc(${px(2560 - 2053)}); top:calc(${px(508.5)} - 30px)">Celular · 1546 × 423</div>`);
+  add(`<div class="tag c-safe" style="left:${px(662.5)}; top:calc(${px(931.5)} + 8px)">Área segura · 1235 × 338</div>`);
+
+  // Recortes: cada .crop mostra só o retângulo x/y/w/h do banner.
+  document.querySelectorAll('.crop').forEach(el => {
+    const [x, y, w, h, out] = ['x', 'y', 'w', 'h', 'out'].map(k => parseFloat(el.dataset[k]));
+    const s = out / w;
+    el.style.width = out + 'px';
+    el.style.height = (h * s) + 'px';
+    const img = new Image();
+    img.src = src;
+    img.style.width = (2560 * s) + 'px';
+    img.style.height = (1440 * s) + 'px';
+    img.style.left = (-x * s) + 'px';
+    img.style.top = (-y * s) + 'px';
+    el.appendChild(img);
+  });
+
+  Promise.all([document.fonts.ready, ...[...document.images].map(i => i.decode())])
+    .then(() => { document.body.dataset.ready = '1'; });
+</script>
+</body>
+</html>

@@ -6,14 +6,19 @@
 > YouTube (tarefa 10).
 
 ## Nome de usuário
-A definir (sugestão: @juliaycastro ou variação disponível)
+@ycastrojulia (decidido em 2026-09-23: a conta pessoal atual vira o perfil profissional; @juliaycastro já está em uso). Nos vídeos, sempre falar "com Y no começo".
+
+## Nome do perfil
+Júlia y Castro | IA e marketing (em uso desde 2026-09-24, provisório)
 
 ## Bio
 
+Em uso desde 2026-09-24 (provisório, revisar depois). Mesma frase da descrição do YouTube.
+
 ```
-Consultoria de IA | Conteúdo, ads e operação
-O que agência cobra caro, eu ensino a resolver com IA
-👇 Assista no Youtube
+Consultoria de IA
+Tem gente fazendo com IA, em minutos, o marketing que você leva a semana inteira pra fazer.
+👇 Eu mostro como no YouTube
 ```
 
 ## Link na bio

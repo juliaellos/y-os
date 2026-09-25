@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  Banner do canal Júlia y Castro no YouTube. 2560 x 1440.
+  Versão pela URL: banner.html?v=a ou banner.html?v=b (sem parâmetro = a).
+  Tudo o que é texto ou logo fica dentro de .safe (1235 x 338, centro),
+  a única área que aparece em todos os aparelhos. O resto é fundo.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #16141F; }
+
+  .banner {
+    width: 2560px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    background: #16141F;
+    color: #F2F0F5;
+  }
+
+  /* ---------- FUNDO ---------- */
+  .glow { position: absolute; border-radius: 50%; pointer-events: none; }
+  .glow-purple { background: radial-gradient(circle, rgba(91,63,160,0.55) 0%, rgba(91,63,160,0.2) 40%, rgba(91,63,160,0) 68%); }
+  .glow-purple.soft { opacity: 0.55; }
+  .halo { background: radial-gradient(ellipse, rgba(198,241,53,0.11) 0%, rgba(198,241,53,0.04) 42%, rgba(198,241,53,0) 70%); }
+
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(242,240,245,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(242,240,245,0.05) 1px, transparent 1px);
+    background-size: 96px 96px;
+    background-position: 32px 48px;
+    -webkit-mask-image: radial-gradient(ellipse 58% 62% at 50% 50%, transparent 0%, transparent 34%, #000 62%, transparent 100%);
+    mask-image: radial-gradient(ellipse 58% 62% at 50% 50%, transparent 0%, transparent 34%, #000 62%, transparent 100%);
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.12;
+    background-size: 256px 256px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Quadros de post nas laterais, fora da área segura. Mesma linguagem
+     do slide 2 do carrossel: vazios (tracejado) à esquerda, prontos à direita. */
+  .frames { position: absolute; top: 0; height: 1440px; z-index: 2; }
+  .frames.left { left: 0; width: 640px; -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); }
+  .frames.right { right: 0; width: 640px; -webkit-mask-image: linear-gradient(270deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); mask-image: linear-gradient(270deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); }
+  .frame {
+    position: absolute;
+    width: 172px;
+    height: 215px;
+    border-radius: 12px;
+    border: 2px dashed rgba(242,240,245,0.2);
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .frame.done { border: 2px solid rgba(242,240,245,0.13); background: rgba(242,240,245,0.045); }
+  .frame i { display: block; height: 11px; border-radius: 4px; background: rgba(242,240,245,0.15); }
+  .frame i.s { width: 62%; }
+  .frame i.img { height: 62px; background: rgba(242,240,245,0.07); margin-top: 8px; }
+  .frame i.cur { width: 3px; height: 30px; background: rgba(242,240,245,0.6); border-radius: 0; }
+
+  /* ---------- ÁREA SEGURA ---------- */
+  .safe {
+    position: absolute;
+    left: 662.5px;
+    top: 551px;
+    width: 1235px;
+    height: 338px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .promise {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: var(--size, 108px);
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    white-space: nowrap;
+  }
+  .lime { color: #C6F135; }
+
+  .sign {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .sign img { height: 70px; display: block; }
+  .sign .bar { width: 2px; height: 40px; background: rgba(242,240,245,0.28); }
+  .sign .cadence {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    letter-spacing: -0.005em;
+    color: rgba(242,240,245,0.78);
+  }
+</style>
+</head>
+<body>
+
+  <div class="banner grain">
+    <div class="glow glow-purple" style="width: 2000px; height: 2000px; left: -620px; top: 260px;"></div>
+    <div class="glow glow-purple soft" style="width: 1700px; height: 1700px; right: -560px; top: -760px;"></div>
+    <div class="grid"></div>
+    <div class="glow halo" id="halo" style="width: 1500px; height: 620px;"></div>
+
+    <div class="frames left">
+      <div class="frame" style="left: 64px; top: 626px;"></div>
+      <div class="frame" style="left: 262px; top: 592px;"><i></i><i class="cur"></i></div>
+      <div class="frame" style="left: 460px; top: 640px;"><i></i><i class="s"></i></div>
+    </div>
+    <div class="frames right">
+      <div class="frame done" style="right: 460px; top: 596px;"><i></i><i class="s"></i><i class="img"></i><i></i></div>
+      <div class="frame done" style="right: 262px; top: 636px;"><i class="img"></i><i></i><i class="s"></i></div>
+      <div class="frame done" style="right: 64px; top: 600px;"><i></i><i></i><i class="s"></i><i class="img"></i></div>
+    </div>
+
+    <div class="safe">
+      <h1 class="promise" id="promise"></h1>
+      <div class="sign">
+        <img src="../logo-claro.png" alt="Júlia y Castro">
+        <span class="bar"></span>
+        <span class="cadence">Vídeo novo toda semana</span>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const PROMISES = {
+    a: { size: 115, html: 'Marketing com IA,<br><span class="lime">com a sua cara</span>' },
+    b: { size: 112, html: 'A IA trabalhando <span class="lime">junto</span><br><span class="lime">com você</span> no marketing' }
+  };
+  const v = new URLSearchParams(location.search).get('v');
+  const p = PROMISES[v] || PROMISES.a;
+  const promise = document.getElementById('promise');
+  promise.innerHTML = p.html;
+  promise.style.setProperty('--size', p.size + 'px');
+
+  // Halo verde atrás do trecho em destaque, centrado nele.
+  document.fonts.ready.then(() => {
+    const banner = document.querySelector('.banner').getBoundingClientRect();
+    const spans = [...document.querySelectorAll('#promise .lime')].map(s => s.getBoundingClientRect());
+    const cx = spans.reduce((a, r) => a + r.left + r.width / 2, 0) / spans.length - banner.left;
+    const cy = spans.reduce((a, r) => a + r.top + r.height / 2, 0) / spans.length - banner.top;
+    const halo = document.getElementById('halo');
+    halo.style.left = (cx - 750) + 'px';
+    halo.style.top = (cy - 310) + 'px';
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>

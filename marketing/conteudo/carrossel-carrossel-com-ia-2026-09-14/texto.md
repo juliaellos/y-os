@@ -6,7 +6,7 @@
 **Kicker:** TUTORIAL
 **Título:** Como eu crio carrossel com IA (sem app)
 **Subtítulo:** O método que uso pra cada post, sem depender de ferramenta pronta
-**Handle:** @juliaycastro
+**Handle:** @ycastrojulia
 **Foto:** foto-slide-01.jpg (carrossel de brinquedo com moldura de post luminosa)
 
 ## Slide 2 — SOLO
@@ -20,7 +20,7 @@
 **Lista:**
 1. Roteiro slide a slide, antes do design
 2. Visual com sua identidade, não de app genérico
-3. Renderização em PNG pronto pra postar
+3. Imagens prontas pra postar
 
 ## Slide 4 — CITAÇÃO
 **Frase:** "Parece feito à mão porque foi você quem decidiu cada linha"
@@ -29,5 +29,5 @@
 ## Slide 5 — CTA FINAL (com foto)
 **Headline:** Quer ver isso funcionando de verdade?
 **CTA:** Assista no YouTube
-**Handle:** @juliaycastro
+**Handle:** @ycastrojulia
 **Foto:** foto-slide-08.jpg (porta verde-limão)
