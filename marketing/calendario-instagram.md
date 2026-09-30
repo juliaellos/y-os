@@ -45,11 +45,23 @@ Cada vídeo de 7 minutos rende 3 cortes de 30s: a abertura (já foi escrita
 como gancho) e os dois momentos mais fortes do meio. Semana apertada: o
 primeiro a sair é o Reels de sábado. O corte fica guardado e entra depois.
 
+**Todo Reels também vai pro YouTube Shorts** (regra de 2026-09-29), com
+o vídeo longo marcado em "Vídeo relacionado". Detalhes em
+`_memoria/estrategia.md` ("Papel de cada rede").
+
 **Capas (regra de 2026-09-16):** sem fundo claro, porque a marca é
 dark-first. Alterna entre escuro sólido, cor sólida e foto, nunca
 repetindo o modo do post anterior na grade. A capa do Reels também conta,
-porque é ela que aparece na grade. Post 1 abre com foto, então o post 2
-vai de roxo sólido (`#5B3FA0`).
+porque é ela que aparece na grade.
+
+**Foto escura conta como escuro (regra de 2026-09-29).** O que vale é como
+a grade fica na tela, não o nome do modo: uma foto de fundo escuro ao lado
+de uma capa escura dá dois blocos escuros colados.
+
+Ordem da grade desde 29/09: post 1 (foto escura) → post 2, Reels do vídeo 1
+(modo palco: escuro com o roxo como luz forte, lê como roxo) → post 3,
+carrossel (escuro, provisório). Template das capas de Reels em
+`identidade/capa-reels-template.html`.
 
 ---
 
@@ -58,30 +70,44 @@ vai de roxo sólido (`#5B3FA0`).
 | Data | Post | Mídia | Tema | Status |
 |---|---|---|---|---|
 | Qui 24/09 | 1 | Carrossel | Como eu crio carrossel com IA (sem app). Ponte pro vídeo 1 | **Não está pronto.** Em ajuste após revisão da Júlia (23/09). Lista de ajustes em `tarefas.md` |
-| Sáb 26/09 | 2 | Carrossel | 5 tarefas do seu negócio que você já pode passar pra IA | Produzir sexta, agendar |
-| Dom 27/09 | 3 | Reels | Corte da abertura do vídeo 1 ("Esse carrossel aqui eu não fiz no Canva...") | Gravar sábado |
+| Ter 29/09 | 2 | Reels | Corte da abertura do vídeo 1 ("Esse carrossel aqui eu não fiz no Canva...") | **Publicado** (29/09). Vídeo, capa e legenda em `marketing/videos/video-01-carrossel-com-ia/edit/reels/` |
+| Depois do Reels | 3 | Carrossel | 5 coisas do seu negócio que a IA faz por você | **Pronto**, capa escura provisória (29/09). Em `marketing/conteudo/carrossel-3-coisas-pra-pedir-ia-2026-09-27/` |
 
-### Post 2 em detalhe
+**Ordem trocada em 29/09:** o Reels sobe antes do carrossel e vira o post
+2; o carrossel vira o post 3. As datas originais (sáb 26 e dom 27/09)
+ficaram pra trás.
+
+### Post 3 em detalhe
 
 Formato 1 (curadoria): o mais salvável, e o formato que o sistema de
 conteúdo recomenda pra abrir o ciclo. Na primeira semana, ele também
 mostra do que o perfil trata e o que vem nos próximos domingos.
 
+**Mudou em 27/09.** O carrossel montado ao vivo no vídeo 1 trouxe 3
+tarefas ("3 coisas pra pedir à IA hoje": posts, clientes, promoções), que
+não eram as 5 planejadas aqui. Em vez de produzir um post novo do zero, o
+post 3 virou a **versão otimizada daquele carrossel**: mantém as 3 do
+vídeo e soma as 2 que amarram nos vídeos do YouTube. O original ficou
+congelado em `antes/`, pra servir de "antes" num vídeo futuro sobre
+otimizar carrossel pra conversão.
+
 | Slide | Conteúdo |
 |---|---|
-| 1 | Capa: "5 tarefas do seu negócio que você já pode passar pra IA" |
+| 1 | Capa escura com luz roxa, provisória (era roxo sólido): "5 coisas do seu negócio que a IA faz por você" |
 | 2 | O problema: o marketing come a semana de quem toca o negócio sozinho |
-| 3 | Montar o carrossel da semana (vídeo 1, domingo 27/09) |
-| 4 | Responder as avaliações do Google (vídeo 2, 04/10) |
-| 5 | Escrever o texto do site que responde o que o cliente pergunta (vídeo 3, 11/10) |
-| 6 | Transformar um áudio ou anotação bagunçada num email pro cliente |
-| 7 | Resumir a planilha de vendas do mês e apontar o que mudou |
-| 8 | "As 3 primeiras viram vídeo no YouTube, uma por domingo" + seguir |
+| 3 | 01 Escrever seus posts |
+| 4 | 02 Responder clientes |
+| 5 | 03 Criar promoções |
+| 6 | 04 Montar o carrossel da semana (vídeo 1, domingo 27/09) |
+| 7 | 05 Responder as avaliações do Google (vídeo 2, 04/10) |
+| 8 | O segredo: peça como se fosse pra um funcionário novo |
+| 9 | CTA: as duas últimas viram vídeo no YouTube + link na bio |
 
-Cada tarefa: o que é, o que pedir pra IA (uma frase simples) e o que tu
-ganha com isso. Sem termo técnico (fase topo de funil).
+Cada tarefa: o que é, o que pedir pra IA (uma frase pronta pra copiar) e
+o que tu ganha com isso. Sem termo técnico (fase topo de funil).
 
----
+Saíram do plano original as tarefas de email e de planilha de vendas.
+Elas voltam quando tiverem vídeo pra apontar.
 
 ## Semana 2 (28/09 a 04/10): vídeo 2 no domingo
 

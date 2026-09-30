@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Like, inscreva-se e sino — Y OS</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-weight: 700;
+        src: url("fonts/Inter-700.woff2") format("woff2");
+      }
+
+      body {
+        margin: 0;
+        background: transparent;
+      }
+
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* The three sit in the clear wall area on the left, in a row, well clear
+         of her side of the frame. */
+      /* Centred along the bottom of the frame. `left: 50%` plus the xPercent
+         shift in the script keeps it centred whatever the row measures, and
+         the gap sizes the group to its contents instead of stretching it. */
+      #row {
+        position: absolute;
+        left: 50%;
+        bottom: 96px;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 96px;
+      }
+
+      .item {
+        position: relative;
+        display: grid;
+        place-items: center;
+        will-change: transform, opacity;
+      }
+
+      /* Each icon starts neutral. Lime arrives only with its action — the
+         guide's rule that the green lights up at the moment of deciding. */
+      .ico {
+        display: block;
+        width: 124px;
+        height: 124px;
+        overflow: visible;
+      }
+
+      .ico path,
+      .ico circle,
+      .ico line {
+        fill: none;
+        stroke: #f2f0f5;
+        stroke-width: 5.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* The filled copy sits on top at opacity 0 and fades in on the beat, so
+         the outline never has to animate its own fill. */
+      .ico-fill {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        will-change: opacity;
+      }
+
+      .ico-fill svg {
+        display: block;
+        width: 124px;
+        height: 124px;
+        overflow: visible;
+      }
+
+      .ico-fill path {
+        fill: #c6f135;
+        stroke: #c6f135;
+        stroke-width: 5.5;
+        stroke-linejoin: round;
+      }
+
+      /* Subscribe button — outline first, lime after the click. */
+      #btn {
+        position: relative;
+        padding: 24px 38px;
+        border: 3px solid #f2f0f5;
+        border-radius: 999px;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 33px;
+        line-height: 1;
+        color: #f2f0f5;
+        white-space: nowrap;
+        will-change: transform;
+      }
+
+      #btn-fill {
+        position: absolute;
+        inset: -3px;
+        border-radius: 999px;
+        background: #c6f135;
+        opacity: 0;
+        will-change: opacity;
+      }
+
+      #btn-label {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Cursor that comes in to press the button. */
+      #cursor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 46px;
+        height: 46px;
+        z-index: 5;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      #cursor path {
+        fill: #f2f0f5;
+        stroke: #16141f;
+        stroke-width: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="engajamento"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+      data-duration="5"
+    >
+      <section id="eng-clip" class="clip" data-start="0" data-duration="5">
+        <div id="row">
+          <!-- Thumbs up -->
+          <div class="item" id="like">
+            <svg class="ico" viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M20 27v27M20 27l9-18a5 5 0 0 1 7 4v10h14a5 5 0 0 1 5 6l-4 18a5 5 0 0 1-5 4H20" />
+              <path d="M9 27h11v27H9z" />
+            </svg>
+            <div class="ico-fill" id="like-fill">
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <path d="M20 27v27M20 27l9-18a5 5 0 0 1 7 4v10h14a5 5 0 0 1 5 6l-4 18a5 5 0 0 1-5 4H20" />
+                <path d="M9 27h11v27H9z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Subscribe button -->
+          <div class="item" id="sub">
+            <div id="btn">
+              <div id="btn-fill"></div>
+              <span id="btn-label">Inscreva-se</span>
+            </div>
+            <svg id="cursor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 2l14 10-6.5 1.2L16 20l-3 1.4-3.4-6.8L5 19z" />
+            </svg>
+          </div>
+
+          <!-- Bell -->
+          <div class="item" id="bell">
+            <svg class="ico" id="bell-ico" viewBox="0 0 64 64" aria-hidden="true">
+              <path d="M32 8a14 14 0 0 1 14 14v12l5 9H13l5-9V22A14 14 0 0 1 32 8z" />
+              <path d="M27 49a5 5 0 0 0 10 0" />
+            </svg>
+            <div class="ico-fill" id="bell-fill">
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <path d="M32 8a14 14 0 0 1 14 14v12l5 9H13l5-9V22A14 14 0 0 1 32 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      gsap.set("#row", { xPercent: -50 });
+      // Both fills start hidden regardless of CSS, so neither icon can arrive
+      // already lit — the green belongs to the action, not the entrance.
+      gsap.set(["#like-fill", "#bell-fill", "#btn-fill"], { opacity: 0 });
+
+      const tl = gsap.timeline({ paused: true });
+
+      // 1. All three arrive together, rising with a slight scale.
+      tl.fromTo(
+        [".item"],
+        { y: 34, scale: 0.86, opacity: 0 },
+        {
+          y: 0,
+          scale: 1,
+          opacity: 1,
+          duration: 0.55,
+          ease: "back.out(1.6)",
+          stagger: 0.07,
+          transformOrigin: "50% 50%",
+        },
+        0
+      );
+
+      // 2. Thumbs up: lifts and settles, filling with lime as it goes.
+      tl.to("#like", { y: -26, duration: 0.26, ease: "power2.out" }, 0.8)
+        .to("#like", { rotation: -12, duration: 0.2, ease: "power1.inOut", transformOrigin: "30% 80%" }, 0.8)
+        .to("#like-fill", { opacity: 1, duration: 0.24, ease: "power2.out" }, 0.86)
+        .to("#like", { y: 0, rotation: 0, duration: 0.34, ease: "power2.inOut", transformOrigin: "30% 80%" }, 1.06);
+
+      // 3. Cursor enters from the right, presses the button, button turns lime.
+      tl.fromTo(
+        "#cursor",
+        { x: 210, y: 120, opacity: 0 },
+        { x: 46, y: 26, opacity: 1, duration: 0.42, ease: "power2.out" },
+        1.6
+      );
+      // The press: cursor dips, button sinks, fill comes up.
+      tl.to("#cursor", { x: 40, y: 32, duration: 0.1, ease: "power2.in" }, 2.02)
+        .to("#btn", { scale: 0.94, duration: 0.1, ease: "power2.in", transformOrigin: "50% 50%" }, 2.02)
+        // Fill and label flip together on a short, hard beat — crossfading them
+        // leaves a frame where pale text sits on pale lime and reads as nothing.
+        .to("#btn-fill", { opacity: 1, duration: 0.1, ease: "power2.out" }, 2.1)
+        .to("#btn-label", { color: "#16141f", duration: 0.1, ease: "power2.out" }, 2.1)
+        .to("#btn", { borderColor: "#c6f135", duration: 0.1, ease: "power2.out" }, 2.1)
+        .to("#btn", { scale: 1, duration: 0.26, ease: "back.out(2.4)", transformOrigin: "50% 50%" }, 2.14)
+        .to("#cursor", { x: 46, y: 26, duration: 0.14, ease: "power2.out" }, 2.14)
+        .to("#cursor", { opacity: 0, x: 120, duration: 0.3, ease: "power2.in" }, 2.46);
+
+      // 4. Bell rings: three swings that decay, lime while it moves.
+      tl.to("#bell-fill", { opacity: 1, duration: 0.2, ease: "power2.out" }, 2.6);
+      tl.to("#bell-ico", { rotation: 16, duration: 0.14, ease: "power2.out", transformOrigin: "50% 12%" }, 2.6)
+        .to("#bell-ico", { rotation: -13, duration: 0.18, ease: "power1.inOut", transformOrigin: "50% 12%" }, 2.74)
+        .to("#bell-ico", { rotation: 9, duration: 0.17, ease: "power1.inOut", transformOrigin: "50% 12%" }, 2.92)
+        .to("#bell-ico", { rotation: -5, duration: 0.16, ease: "power1.inOut", transformOrigin: "50% 12%" }, 3.09)
+        .to("#bell-ico", { rotation: 0, duration: 0.2, ease: "power2.out", transformOrigin: "50% 12%" }, 3.25);
+
+      // 5. All three leave together.
+      tl.to(
+        [".item"],
+        { y: -18, opacity: 0, duration: 0.42, ease: "power2.in", stagger: 0.05 },
+        4.2
+      );
+
+      window.__timelines["engajamento"] = tl;
+    </script>
+  </body>
+</html>

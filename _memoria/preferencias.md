@@ -20,5 +20,6 @@ Ainda não definido em detalhe (sem exemplo de escrita real da própria Júlia a
 
 - Carrossel e texto de conteúdo em prosa viva, linguagem natural: narrativa fluida, que conduz o leitor de um slide pro outro com pouca fricção. Desenvolver bem as ideias sem ficar verboso nem prolixo. Carrossel pode ter 7 ou 8 slides se a narrativa pedir (feedback em 2026-09-24).
 - Evitar os vícios que deixam o português mecânico, com cara de IA: antítese ("não é X, é Y"), excesso de frase seca e curta, e frases sem plural, sem conectivo ou sem artigo (feedback em 2026-09-24).
+- Legenda de Instagram curta, no molde da do post 1 (v2): três blocos curtos (gancho, o que a peça entrega, chamada com "me segue"), sem perder o valor nem a vontade de ver o post e seguir o perfil (feedback em 2026-09-29).
 
 ## Preferências adicionais

@@ -14,6 +14,7 @@ de clientes.
 - `_memoria/` — quem eu sou, como falo, o que tá em foco
 - `identidade/` — cores, fontes, logo, padrão visual
 - `marketing/` — conteúdo, SEO, campanhas (saída das skills)
+- `marketing/videos/` — vídeos do YouTube, uma pasta por vídeo (roteiro, título, thumbnail, materiais de gravação e edições)
 - `saidas/` — análises, emails, documentos pontuais
 - `produtos/` — meus produtos próprios (cursos, ebooks, ofertas)
 - `audiencia/` — listas, dados, contatos da minha base
@@ -55,7 +56,29 @@ Em construção.
 
 - Conteúdo novo salvar em `marketing/conteudo/<tipo>-<tema>-<data>/`
 - Cada lançamento de produto cria pasta em `produtos/<nome>/`
+- Vídeo do YouTube: uma pasta por vídeo em `marketing/videos/video-<NN>-<tema>/`.
+  **Todo material daquele vídeo fica dentro da pasta dele** — roteiro
+  (`roteiro.md`), título e descrição (`titulo-descricao.md`), thumbnail
+  (`thumbnail/`), materiais que aparecem na tela (`materiais-gravacao/`),
+  cortes pra Reels (`reels-cortes.md`) e as edições da skill `/editar-video`
+  (`edit/<trecho>/`, ex. `edit/inicio/`). Nada de vídeo vai pra `saidas/`,
+  e nunca criar pasta `videos/` na raiz. Ver `marketing/videos/README.md`.
 - Prioridade atual: estruturação da empresa e aquisição de clientes (ver `_memoria/estrategia.md`)
+
+## Pipeline de edição de vídeo (YouTube)
+
+Skill ativa: **`editar-video`** (invocar com `/editar-video` ou enviando um arquivo de vídeo)
+
+Pipeline: vídeo bruto → transcrição Whisper local (português, ~2s) → cortes/silêncios via Video-Use → overlays/motion graphics via HyperFrames → `final.mp4`
+
+Infraestrutura instalada (global, sem API key necessária):
+- `whisper-cli` com modelo `ggml-large-v3-turbo-q5_0.bin` (574 MB, Metal GPU)
+- `ffmpeg` 9.x full (libass, libx264, libvpx, zscale)
+- `video-use` em `~/Developer/video-use/` com Python deps via `uv`
+- Skills HyperFrames: `~/.claude/skills/hyperframes*` (11 skills)
+- Fontes Y OS locais: `identidade/fontes/` (Space Grotesk + Inter, woff2)
+- Design reference para overlays: `~/.claude/skills/editar-video/DESIGN.md`
+- Adapter Whisper→Scribe: `~/Developer/video-use/helpers/transcribe_whisper.py`
 
 ## Ferramentas conectadas
 

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Folha de comparação das 3 opções de thumbnail. Render: 1600 x 1280 -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1600px; height: 1280px; background: #0f0e14; color: #F2F0F5; font-family: "Inter", sans-serif; padding: 48px 56px; }
+  h1 { font-family: "Space Grotesk", sans-serif; font-size: 34px; letter-spacing: -0.02em; }
+  .sub { opacity: 0.6; font-size: 18px; margin-top: 8px; }
+  .row { display: flex; align-items: flex-end; gap: 40px; margin-top: 40px; }
+  .big { width: 576px; height: 324px; border-radius: 10px; display: block; }
+  .small { width: 246px; height: 138px; border-radius: 6px; display: block; }
+  .cap { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.5; font-weight: 700; margin-top: 10px; }
+  .info { width: 560px; align-self: center; }
+  .letter { font-family: "Space Grotesk", sans-serif; font-size: 64px; color: #C6F135; line-height: 1; }
+  .name { font-family: "Space Grotesk", sans-serif; font-size: 30px; margin-top: 8px; }
+  .desc { font-size: 18px; line-height: 1.5; opacity: 0.75; margin-top: 10px; }
+</style>
+</head>
+<body>
+  <h1>Thumbnail: 3 opções</h1>
+  <p class="sub">Mesmo conteúdo (vídeo 1) nas três. Rosto provisório, a foto real entra no sábado. À direita, o tamanho aproximado no celular.</p>
+
+  <div class="row">
+    <div class="info">
+      <div class="letter">A</div>
+      <div class="name">Leque</div>
+      <p class="desc">Fundo escuro. Texto grande em cima, os slides do carrossel em leque embaixo e o rosto sumindo no escuro à direita. Mostra o resultado e quem fez.</p>
+    </div>
+    <div><img class="big" src="thumb-A.png"></div>
+    <div><img class="small" src="thumb-A.png"><div class="cap">no celular</div></div>
+  </div>
+
+  <div class="row">
+    <div class="info">
+      <div class="letter">B</div>
+      <div class="name">Roxo + marca-texto</div>
+      <p class="desc">Fundo roxo sólido, rosto à esquerda olhando pro texto, e a frase principal numa faixa verde. A que mais se destaca no meio de thumbnails escuras. Um print só.</p>
+    </div>
+    <div><img class="big" src="thumb-B.png"></div>
+    <div><img class="small" src="thumb-B.png"><div class="cap">no celular</div></div>
+  </div>
+
+  <div class="row">
+    <div class="info">
+      <div class="letter">C</div>
+      <div class="name">Antes e depois</div>
+      <p class="desc">O jeito de sempre em cinza, o resultado aceso em verde, a mesma narrativa de cor do post 1. Conta a promessa do vídeo sem ler o título. Pede dois prints por vídeo.</p>
+    </div>
+    <div><img class="big" src="thumb-C.png"></div>
+    <div><img class="small" src="thumb-C.png"><div class="cap">no celular</div></div>
+  </div>
+</body>
+</html>

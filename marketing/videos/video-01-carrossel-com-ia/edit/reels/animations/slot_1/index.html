@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Leque do carrossel (Reels) — Y OS</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Space Grotesk";
+        font-weight: 700;
+        src: url("fonts/SpaceGrotesk-700.woff2") format("woff2");
+      }
+
+      body {
+        margin: 0;
+        background: transparent;
+      }
+
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* The empty band above her head runs 0-900px. The fan fills ~150-915
+         and ~100-980 across, under the Reels header and just above the
+         caption line (~965). */
+      #fan {
+        position: absolute;
+        left: 144px;
+        top: 185px;
+        width: 792px;
+        height: 690px;
+        transform-origin: 50% 50%;
+      }
+
+      /* The slides share the page's #16141F, so the lime halo is what makes
+         them read as cards: it lights the background around them. */
+      #halo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1300px;
+        height: 1300px;
+        z-index: 1;
+        pointer-events: none;
+        background: radial-gradient(
+          circle,
+          rgba(198, 241, 53, 0.32) 0%,
+          rgba(198, 241, 53, 0.13) 38%,
+          rgba(198, 241, 53, 0) 68%
+        );
+        will-change: transform, opacity;
+      }
+
+      .slide {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 432px;
+        height: 540px;
+        border-radius: 14px;
+        overflow: hidden;
+        z-index: 2;
+        /* A light hairline gives each card an edge where the halo fades out
+           and the card would otherwise melt into the same-colour page. */
+        border: 1.5px solid rgba(242, 240, 245, 0.16);
+        box-sizing: border-box;
+        box-shadow: 0 14px 34px rgba(6, 5, 10, 0.5);
+        will-change: transform, opacity;
+      }
+
+      .slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Sticker on the empty lower-right corner of the fan. */
+      #selo {
+        position: absolute;
+        left: 560px;
+        top: 515px;
+        z-index: 80;
+        background: #c6f135;
+        color: #16141f;
+        border-radius: 14px;
+        padding: 18px 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        box-shadow: 0 12px 30px rgba(6, 5, 10, 0.45);
+        will-change: transform, opacity;
+      }
+
+      #selo .k {
+        font-size: 19px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        opacity: 0.72;
+        margin-bottom: 6px;
+      }
+
+      #selo .n {
+        font-size: 74px;
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="leque-reels"
+      data-start="0"
+      data-width="1080"
+      data-height="1920"
+      data-duration="8.2333"
+    >
+      <section id="fan-clip" class="clip" data-start="0" data-duration="8.2333">
+        <div id="fan">
+          <div id="halo"></div>
+          <div class="slide" id="s1"><img src="slides/slide-01.png" alt="" /></div>
+          <div class="slide" id="s2"><img src="slides/slide-02.png" alt="" /></div>
+          <div class="slide" id="s3"><img src="slides/slide-03.png" alt="" /></div>
+          <div class="slide" id="s4"><img src="slides/slide-04.png" alt="" /></div>
+          <div class="slide" id="s5"><img src="slides/slide-05.png" alt="" /></div>
+          <div class="slide" id="s6"><img src="slides/slide-06.png" alt="" /></div>
+          <div id="selo"><span class="k">Feito em</span><span class="n">10 min</span></div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Same fan as the YouTube opening, scaled 1.33x for the vertical frame.
+      // The upward step is kept at 30px (not 37) so the taller cards still
+      // clear the caption line. Slide 1 (the cover) sits lowest and on top;
+      // each next card rides higher and tucks behind.
+      const LAYOUT = [
+        { x: 0, y: 150, rot: 9.5, z: 60 },
+        { x: 72, y: 120, rot: 5.7, z: 50 },
+        { x: 144, y: 90, rot: 1.9, z: 40 },
+        { x: 216, y: 60, rot: -1.9, z: 30 },
+        { x: 288, y: 30, rot: -5.7, z: 20 },
+        { x: 360, y: 0, rot: -9.5, z: 10 },
+      ];
+      const IDS = ["#s1", "#s2", "#s3", "#s4", "#s5", "#s6"];
+
+      LAYOUT.forEach((p, i) => gsap.set(IDS[i], { zIndex: p.z }));
+
+      const tl = gsap.timeline({ paused: true });
+
+      // She says "esse carrossel aqui" at 0.1s while pointing up, so the
+      // first frame already has light and the cover on its way in. The
+      // whole fan is open by ~0.8s instead of the 1.3s the YouTube cut used.
+      tl.fromTo(
+        "#halo",
+        { xPercent: -50, yPercent: -50, scale: 0.8, opacity: 0.45 },
+        { xPercent: -50, yPercent: -50, scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" },
+        0
+      );
+
+      LAYOUT.forEach((p, i) => {
+        tl.fromTo(
+          IDS[i],
+          {
+            x: p.x - 52,
+            y: p.y + 84,
+            rotation: p.rot * 0.2,
+            scale: 0.9,
+            opacity: i === 0 ? 0.35 : 0,
+          },
+          {
+            x: p.x,
+            y: p.y,
+            rotation: p.rot,
+            scale: 1,
+            opacity: 1,
+            duration: 0.42,
+            ease: "power3.out",
+          },
+          i * 0.07
+        );
+      });
+
+      // Slow push-in across the hold so a 7s static fan doesn't go dead.
+      tl.fromTo("#fan", { scale: 1 }, { scale: 1.025, duration: 7.3, ease: "sine.inOut" }, 0.9);
+
+      // The sticker lands as soon as the last card settles (~0.77s).
+      tl.fromTo(
+        "#selo",
+        { scale: 0.3, rotation: -18, opacity: 0 },
+        { scale: 1, rotation: -6, opacity: 1, duration: 0.4, ease: "back.out(2.4)", transformOrigin: "50% 50%" },
+        0.78
+      );
+
+      // One pulse on "10 minutos" (7.19s) ties the sticker back to the line.
+      tl.to("#selo", { scale: 1.1, duration: 0.14, ease: "power2.out" }, 7.15)
+        .to("#selo", { scale: 1, duration: 0.32, ease: "back.out(2)" }, 7.29);
+
+      // No exit: the zoom-blur transition at the cut carries the fan out.
+      window.__timelines["leque-reels"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Folha de comparação das 3 opções de capa de Reels. Render: 1600 x 1200 -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1600px; height: 1200px; background: #0f0e14; color: #F2F0F5; font-family: "Inter", sans-serif; padding: 48px 56px; }
+  h1 { font-family: "Space Grotesk", sans-serif; font-size: 34px; letter-spacing: -0.02em; }
+  .sub { opacity: 0.6; font-size: 18px; margin-top: 8px; }
+  .cols { display: flex; gap: 48px; margin-top: 36px; }
+  .col { width: 464px; }
+  .letter { font-family: "Space Grotesk", sans-serif; font-size: 56px; color: #C6F135; line-height: 1; }
+  .name { font-family: "Space Grotesk", sans-serif; font-size: 28px; margin-top: 6px; }
+  .desc { font-size: 17px; line-height: 1.5; opacity: 0.75; margin-top: 8px; height: 104px; }
+  .full { width: 300px; height: 533px; border-radius: 10px; display: block; margin-top: 16px; }
+  .cap { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.5; font-weight: 700; margin-top: 22px; margin-bottom: 10px; }
+  .grid { display: flex; gap: 4px; }
+  .tile { width: 150px; height: 200px; background-size: cover; background-position: center; position: relative; }
+  .tile.p2 { background: #5B3FA0; display: flex; align-items: center; justify-content: center; text-align: center;
+    font-family: "Space Grotesk", sans-serif; font-size: 14px; padding: 12px; line-height: 1.2; opacity: 0.95; }
+  .tile.reel::after { content: "▶"; position: absolute; right: 8px; top: 6px; font-size: 14px; opacity: 0.9; }
+</style>
+</head>
+<body>
+  <h1>Capa do Reels: 3 opções</h1>
+  <p class="sub">Mesmo texto (Reels de domingo, abertura do vídeo 1). Embaixo de cada uma, como a grade do perfil fica no domingo: o Reels, o post 2 (roxo, sábado) e o post 1.</p>
+
+  <div class="cols">
+    <div class="col">
+      <div class="letter">A</div>
+      <div class="name">Texto sobre a foto</div>
+      <p class="desc">Frame do Reels em tela cheia, texto no rodapé com sombra. Mesmo desenho da capa do post 1. Tem versões escura e roxa pra alternar na grade.</p>
+      <img class="full" src="capa-A.png">
+      <div class="cap">na grade do perfil</div>
+      <div class="grid">
+        <div class="tile reel" style="background-image: url('capa-A.png')"></div>
+        <div class="tile p2">post 2<br>roxo sólido</div>
+        <div class="tile" style="background-image: url('../../marketing/conteudo/carrossel-carrossel-com-ia-2026-09-14/v2/instagram/slide-01.png')"></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="letter">B</div>
+      <div class="name">Foto + faixa</div>
+      <p class="desc">Foto em cima, faixa sólida com linha verde embaixo. Todo Reels fica igual, então a grade ganha cara de série. A faixa pode ser escura ou roxa.</p>
+      <img class="full" src="capa-B.png">
+      <div class="cap">na grade do perfil</div>
+      <div class="grid">
+        <div class="tile reel" style="background-image: url('capa-B.png')"></div>
+        <div class="tile p2">post 2<br>roxo sólido</div>
+        <div class="tile" style="background-image: url('../../marketing/conteudo/carrossel-carrossel-com-ia-2026-09-14/v2/instagram/slide-01.png')"></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="letter">C</div>
+      <div class="name">Resultado em destaque</div>
+      <p class="desc">Sem foto: título em cima e o resultado do vídeo num card com borda verde. Conversa com a thumbnail do YouTube. Fundo escuro ou roxo.</p>
+      <img class="full" src="capa-C.png">
+      <div class="cap">na grade do perfil</div>
+      <div class="grid">
+        <div class="tile reel" style="background-image: url('capa-C.png')"></div>
+        <div class="tile p2">post 2<br>roxo sólido</div>
+        <div class="tile" style="background-image: url('../../marketing/conteudo/carrossel-carrossel-com-ia-2026-09-14/v2/instagram/slide-01.png')"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

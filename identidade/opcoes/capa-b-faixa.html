@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  Opção B de capa de Reels: foto + faixa de título. 1080 x 1920.
+  Frame do Reels em cima, faixa sólida embaixo (escura ou roxa) com linha
+  verde no topo. Todo Reels fica com o mesmo desenho, então a grade ganha
+  cara de série. Texto dentro da área segura (y 300 a 1620).
+  ?faixa=roxo troca a cor da faixa. &guias=1 desenha os recortes.
+-->
+<script>
+  const V2 = '../../marketing/conteudo/carrossel-carrossel-com-ia-2026-09-14/v2/';
+  const CFG = {
+    foto: V2 + 'foto-cta.jpg', fotoPos: '45% 22%', fotoZoom: '150%',
+    kicker: 'Vídeo novo',
+    linhas: ['Esse carrossel eu', '[não fiz no Canva]'],
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #16141F; }
+  .frame { width: 1080px; height: 1920px; position: relative; overflow: hidden; color: #F2F0F5; background: #14120d; }
+
+  .grain::after {
+    content: ""; position: absolute; inset: 0; z-index: 10; pointer-events: none; opacity: 0.13;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .photo { position: absolute; left: 0; top: 0; width: 1080px; height: 1200px; background-repeat: no-repeat; z-index: 0; }
+  .photo-shade { position: absolute; left: 0; top: 0; width: 1080px; height: 1200px; z-index: 1;
+    background: linear-gradient(180deg, rgba(10,9,7,0.35) 0%, rgba(10,9,7,0) 24%, rgba(10,9,7,0) 80%, rgba(10,9,7,0.35) 100%); }
+
+  .band { position: absolute; left: 0; right: 0; top: 1200px; bottom: 0; z-index: 2; background: #16141F; border-top: 6px solid #C6F135; }
+  .band.roxo { background: #5B3FA0; }
+
+  .logo-mark {
+    position: absolute; top: 1560px; left: 50%; transform: translateX(-50%); z-index: 3;
+    font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 26px; opacity: 0.85; white-space: nowrap;
+  }
+
+  .content { position: absolute; left: 72px; right: 72px; top: 1256px; z-index: 3; }
+  .kicker {
+    font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 24px;
+    text-transform: uppercase; letter-spacing: 0.26em; color: #C6F135; margin-bottom: 24px;
+  }
+  .title { font-family: "Space Grotesk", sans-serif; font-weight: 700; line-height: 1.02; letter-spacing: -0.03em; }
+  .title .line { display: block; white-space: nowrap; width: max-content; }
+  .title .lime { color: #C6F135; }
+
+  .guide { position: absolute; left: 0; right: 0; z-index: 20; pointer-events: none; }
+  .g34 { top: 240px; height: 1440px; border-top: 3px dashed #ff5fa2; border-bottom: 3px dashed #ff5fa2; }
+  .g45 { top: 285px; height: 1350px; border-top: 3px dashed #5fd4ff; border-bottom: 3px dashed #5fd4ff; }
+</style>
+</head>
+<body>
+  <div class="frame grain" id="frame">
+    <div class="photo" id="photo"></div>
+    <div class="photo-shade"></div>
+    <div class="band" id="band"></div>
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="content">
+      <div class="kicker" id="kicker"></div>
+      <div class="title" id="title"></div>
+    </div>
+  </div>
+<script>
+  const params = new URLSearchParams(location.search);
+  if (params.get('faixa') === 'roxo') document.getElementById('band').classList.add('roxo');
+  const photo = document.getElementById('photo');
+  photo.style.backgroundImage = `url('${CFG.foto}')`;
+  photo.style.backgroundSize = CFG.fotoZoom;
+  photo.style.backgroundPosition = CFG.fotoPos;
+  document.getElementById('kicker').textContent = CFG.kicker;
+
+  const title = document.getElementById('title');
+  let open = false;
+  title.innerHTML = CFG.linhas.map(l => {
+    let html = '';
+    for (const part of l.split(/(\[|\])/)) {
+      if (part === '[') open = true; else if (part === ']') open = false;
+      else if (part) html += open ? `<span class="lime">${part}</span>` : part;
+    }
+    return `<span class="line">${html}</span>`;
+  }).join('');
+
+  if (params.get('guias') === '1') {
+    document.getElementById('frame').insertAdjacentHTML('beforeend', '<div class="guide g34"></div><div class="guide g45"></div>');
+  }
+
+  // O título tem que terminar antes de y=1620 (fim da área segura)
+  document.fonts.ready.then(() => {
+    let size = 110;
+    const fits = () => Math.max(...[...title.querySelectorAll('.line')].map(l => l.getBoundingClientRect().width)) <= 900
+      && title.getBoundingClientRect().bottom <= 1520;
+    title.style.fontSize = size + 'px';
+    while (!fits() && size > 60) { size -= 2; title.style.fontSize = size + 'px'; }
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>

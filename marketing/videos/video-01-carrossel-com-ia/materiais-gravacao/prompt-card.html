@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0e0c14; }
+
+  .card {
+    position: relative;
+    width: 759px;
+    height: 665px;
+    overflow: hidden;
+    background: #16141F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 62px 70px;
+  }
+
+  /* grão — mesmo padrão dos slides internos */
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0.13;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* grade técnica — mesma do slide 4 */
+  .blueprint {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(242,240,245,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(242,240,245,0.04) 1px, transparent 1px);
+    background-size: 90px 90px;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 60%, #000 0%, #000 35%, transparent 80%);
+    mask-image: radial-gradient(ellipse at 70% 60%, #000 0%, #000 35%, transparent 80%);
+  }
+
+  .content { position: relative; z-index: 2; }
+
+  .kicker {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #C6F135;
+    margin-bottom: 12px;
+  }
+
+  .rule {
+    width: 70px;
+    height: 4px;
+    border-radius: 2px;
+    background: #C6F135;
+    margin-bottom: 30px;
+  }
+
+  .box {
+    background: #241F38;
+    border: 1px solid #3a3157;
+    border-radius: 14px;
+    padding: 26px 30px;
+  }
+
+  .box p {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-weight: 400;
+    font-size: 13.5px;
+    line-height: 1.68;
+    color: rgba(242,240,245,0.88);
+  }
+  .box p + p { margin-top: 13px; }
+  .box .lime { color: #C6F135; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="blueprint"></div>
+    <div class="content">
+      <div class="kicker">Prompt</div>
+      <div class="rule"></div>
+      <div class="box">
+        <p>Cria um carrossel pro Instagram sobre: 3 coisas que você pode pedir pra IA fazer no seu negócio hoje.<br>
+        Público: donos de pequenos negócios que nunca usaram IA.</p>
+
+        <p>&ndash; 6 slides, no tamanho 1080x1350<br>
+        &ndash; Slide 1: capa com título curto e forte (no máximo 8 palavras)<br>
+        &ndash; Slides 2 a 5: uma ideia por slide, texto curto e fácil de ler<br>
+        &ndash; Slide 6: chamada pra ação: "Me segue pra mais dicas de IA"<br>
+        &ndash; Visual: fundo roxo bem escuro (<span class="lime">#16141F</span>), destaque em verde-limão (<span class="lime">#C6F135</span>), títulos na fonte Space Grotesk e texto na fonte Inter.<br>
+        &nbsp;&nbsp;Estilo limpo e moderno, com bastante espaço vazio, sem emoji.<br>
+        &ndash; Coloca o meu @ no rodapé de todos os slides: <span class="lime">@ycastrojulia</span></p>
+
+        <p>Monta tudo num arquivo HTML e depois exporta cada slide como imagem PNG numa pasta chamada "slides".<br>
+        Antes de fazer o visual, me mostra o texto de cada slide pra eu aprovar.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

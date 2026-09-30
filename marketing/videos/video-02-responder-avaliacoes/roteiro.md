@@ -14,7 +14,7 @@
 
 Eu fiz isso com IA, e nesse vídeo eu te mostro o passo a passo. Inclusive o que fazer com avaliação negativa, que é a que dá mais medo de responder.
 
-E no final eu te dou o pedido que eu usei na inteligência artificial, pronto pra copiar. É só trocar pelo nome do seu negócio."
+E no final eu te dou o prompt que eu usei na inteligência artificial, pronto pra copiar. É só trocar pelo nome do seu negócio."
 
 ---
 

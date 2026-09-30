@@ -1,0 +1,595 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family:"Space Grotesk"; src:url("fontes/SpaceGrotesk-500.woff2") format("woff2"); font-weight:500; font-display:block; }
+  @font-face { font-family:"Space Grotesk"; src:url("fontes/SpaceGrotesk-700.woff2") format("woff2"); font-weight:700; font-display:block; }
+  @font-face { font-family:"Inter"; src:url("fontes/Inter-500.woff2") format("woff2"); font-weight:500; font-display:block; }
+  @font-face { font-family:"Inter"; src:url("fontes/Inter-600.woff2") format("woff2"); font-weight:600; font-display:block; }
+  @font-face { font-family:"Inter"; src:url("fontes/Inter-700.woff2") format("woff2"); font-weight:700; font-display:block; }
+</style>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Inter", sans-serif; background: #0c0b10; }
+  p, .step-text, .quote-text, .cta-headline { text-wrap: pretty; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    color: #F2F0F5;
+  }
+  .bg-dark { background: #16141F; }
+  .bg-alt { background: #201D2E; }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.13;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .glow-lime { background: radial-gradient(circle, rgba(198,241,53,0.22) 0%, rgba(198,241,53,0.08) 38%, rgba(198,241,53,0) 68%); }
+  .halo { border-radius: 50%; background: radial-gradient(ellipse, rgba(198,241,53,0.30) 0%, rgba(198,241,53,0.12) 42%, rgba(198,241,53,0) 70%); }
+  .lime { color: #C6F135; }
+  .glow-purple { background: radial-gradient(circle, rgba(91,63,160,0.55) 0%, rgba(91,63,160,0.2) 40%, rgba(91,63,160,0) 68%); }
+
+  .logo-mark {
+    position: absolute;
+    top: 56px;
+    left: 64px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    opacity: 0.85;
+    z-index: 3;
+  }
+
+  .logo-mark.center { left: 50%; transform: translateX(-50%); }
+  .logo-mark.br { top: auto; left: auto; bottom: 56px; right: 64px; }
+
+  .content {
+    position: absolute;
+    left: 90px;
+    right: 90px;
+    z-index: 2;
+  }
+
+  .kicker {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: #C6F135;
+    margin-bottom: 22px;
+  }
+  .kicker.muted { color: #F2F0F5; opacity: 0.5; }
+
+  .ruler {
+    width: 70px;
+    height: 4px;
+    background: #C6F135;
+    margin: 28px 0 26px;
+    border-radius: 2px;
+  }
+  .ruler.muted { background: rgba(242,240,245,0.3); }
+
+  h2.h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  p.body {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.5;
+    opacity: 0.82;
+  }
+
+  /* ---------- SLIDE 1 — CAPA ---------- */
+  .cover { background: #14120d; }
+  .cover-photo {
+    position: absolute;
+    left: 0;
+    top: -35px;
+    width: 1080px;
+    height: 1350px;
+    background: url('foto-capa.jpg') center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 84%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 84%, transparent 100%);
+  }
+  .cover .content { left: 72px; right: 72px; bottom: 155px; }
+  .cover-shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(10,9,7,0) 0%, rgba(10,9,7,0) 54%, rgba(10,9,7,0.5) 73%, rgba(10,9,7,0.88) 100%);
+  }
+  .cover-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 74px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+  .cover-title .small {
+    font-size: 36px;
+    letter-spacing: -0.01em;
+    opacity: 0.9;
+    vertical-align: 0.12em;
+    margin-left: 6px;
+  }
+  .cover-sub {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.45;
+    opacity: 0.78;
+    margin-top: 20px;
+  }
+
+  /* ---------- SLIDE 2 — CHATGPT → CANVA ---------- */
+  .flow { position: absolute; left: 90px; width: 798px; top: 800px; z-index: 2; }
+  .flow-row { display: flex; align-items: center; }
+  .chip {
+    height: 66px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    border: 1.5px solid rgba(242,240,245,0.28);
+    border-radius: 12px;
+    background: rgba(242,240,245,0.04);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: rgba(242,240,245,0.85);
+  }
+  .arrow { flex: 1; position: relative; margin: 0 20px 0 18px; border-top: 1.5px dashed rgba(242,240,245,0.3); }
+  .arrow::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: -7.5px;
+    border-left: 11px solid rgba(242,240,245,0.4);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+  }
+  .arrow span, .frames-cap {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .arrow span { position: absolute; left: 0; right: 0; top: -36px; text-align: center; }
+  .frames { display: flex; gap: 18px; margin-top: 56px; }
+  .frame {
+    width: 118px;
+    height: 148px;
+    border-radius: 8px;
+    border: 1.5px dashed rgba(242,240,245,0.22);
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .frame.done { border: 1.5px solid rgba(242,240,245,0.14); background: rgba(242,240,245,0.05); }
+  .frame i { display: block; height: 8px; border-radius: 3px; background: rgba(242,240,245,0.16); }
+  .frame i.s { width: 65%; }
+  .frame i.img { height: 40px; background: rgba(242,240,245,0.07); margin-top: 6px; }
+  .frame i.cur { width: 2px; height: 22px; background: rgba(242,240,245,0.65); border-radius: 0; }
+  .frames-cap { margin-top: 22px; display: flex; justify-content: space-between; }
+
+  /* ---------- SLIDE 3 — CONVERSA ---------- */
+  .chat { position: absolute; left: 90px; right: 90px; top: 760px; display: flex; flex-direction: column; gap: 22px; z-index: 2; }
+  .bubble {
+    max-width: 740px;
+    padding: 22px 28px 24px;
+    border-radius: 20px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.45;
+  }
+  .bubble .who {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 8px;
+  }
+  .bubble.me { align-self: flex-end; background: rgba(198,241,53,0.1); border: 1px solid rgba(198,241,53,0.45); border-bottom-right-radius: 6px; }
+  .bubble.me .who { color: #C6F135; opacity: 0.85; }
+  .bubble.ai { align-self: flex-start; background: #16141F; border: 1px solid #2a2636; border-bottom-left-radius: 6px; color: rgba(242,240,245,0.85); }
+
+  /* ---------- SLIDE 5 — PASSOS ---------- */
+  .blueprint {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(242,240,245,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(242,240,245,0.04) 1px, transparent 1px);
+    background-size: 90px 90px;
+    background-position: 0 0;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 60%, #000 0%, #000 35%, transparent 80%);
+    mask-image: radial-gradient(ellipse at 70% 60%, #000 0%, #000 35%, transparent 80%);
+  }
+  .steps { position: relative; margin-top: 96px; }
+  .steps::before {
+    content: "";
+    position: absolute;
+    left: 31px;
+    top: 32px;
+    bottom: 60px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(198,241,53,0.6), rgba(198,241,53,0.25));
+  }
+  .step { display: flex; align-items: flex-start; gap: 34px; margin-bottom: 78px; position: relative; }
+  .step:last-child { margin-bottom: 0; }
+  .node {
+    flex: 0 0 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid #C6F135;
+    background: #16141F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #C6F135;
+  }
+  .step-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 1.38;
+    padding-top: 8px;
+  }
+  .step-text .soft { font-weight: 500; opacity: 0.7; }
+  .footnote {
+    margin-top: 96px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(242,240,245,0.12);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.5;
+    opacity: 0.68;
+  }
+
+  /* ---------- FRASE ---------- */
+  .quote-text {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 74px;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  .quote-attr {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 1.5;
+    opacity: 0.68;
+    margin-top: 44px;
+  }
+
+  /* ---------- PROVA ---------- */
+  .proof-grid {
+    position: absolute;
+    left: 90px;
+    width: 860px;
+    top: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 20px;
+    z-index: 2;
+  }
+  .thumb {
+    width: 200px;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(242,240,245,0.12);
+    position: relative;
+    background: #201D2E;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb.here { border: 3px solid #C6F135; overflow: visible; }
+  .thumb.here img { border-radius: 5px; }
+  .here-pill {
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%);
+    background: #C6F135;
+    color: #16141F;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    padding: 9px 16px;
+    border-radius: 999px;
+    z-index: 3;
+  }
+
+  /* ---------- SLIDE 8 — CTA ---------- */
+  .cta { background: #1a140e; }
+  .cta-photo {
+    position: absolute;
+    inset: 0;
+    background: url('foto-cta.jpg') center / cover no-repeat;
+  }
+  .cta-shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(22,20,31,0) 0%, rgba(22,20,31,0) 58%, rgba(22,20,31,0.78) 76%, rgba(22,20,31,0.96) 90%);
+  }
+  .cta-logo {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 210px;
+    z-index: 3;
+  }
+  .cta .content { bottom: 64px; text-align: center; left: 80px; right: 80px; }
+  .cta-headline {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+  }
+  .cta-sub {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.5;
+    opacity: 0.82;
+    margin: 18px auto 0;
+  }
+  .cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    background: #C6F135;
+    color: #16141F;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 20px 44px;
+    border-radius: 12px;
+  }
+
+  /* ---------- CAPA ROXA (post 3) ---------- */
+  .cover-solid { background: #5B3FA0; }
+  /* Provisório (29/09): na grade este post fica ao lado do Reels do vídeo 1,
+     que usa o roxo como luz de palco. Roxo aqui repetiria a cor, então a capa
+     vai escura com luz roxa vazando da esquerda. Pra voltar ao roxo sólido,
+     tirar "escura grain" da capa e a div .glow dela. */
+  .cover-solid.escura { background: #16141F; }
+  .cover-solid .content { left: 90px; right: 90px; top: 360px; bottom: auto; }
+  .cover-solid .cover-title { font-size: 96px; line-height: 1.0; }
+  .cover-solid .cover-sub { opacity: 0.86; margin-top: 38px; max-width: 760px; font-size: 27px; }
+  .cover-solid .kicker { color: #F2F0F5; opacity: 0.75; }
+
+  /* ---------- SLIDE DE TAREFA ---------- */
+  .task-num {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 1;
+    color: #C6F135;
+    letter-spacing: -0.04em;
+    margin-bottom: 30px;
+  }
+  .ask-label {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: #C6F135;
+    margin-bottom: 20px;
+  }
+  .ask {
+    position: absolute;
+    left: 90px;
+    right: 90px;
+    bottom: 150px;
+    z-index: 2;
+  }
+  .ask-box {
+    background: rgba(198,241,53,0.09);
+    border: 1px solid rgba(198,241,53,0.42);
+    border-radius: 20px;
+    border-bottom-right-radius: 6px;
+    padding: 30px 34px 32px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 29px;
+    line-height: 1.45;
+  }
+  .gain {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1.45;
+    opacity: 0.72;
+    margin-top: 26px;
+    padding-left: 22px;
+    border-left: 3px solid rgba(198,241,53,0.55);
+  }
+  .video-tag {
+    display: inline-block;
+    margin-top: 26px;
+    border: 1px solid rgba(198,241,53,0.5);
+    border-radius: 999px;
+    padding: 11px 22px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.04em;
+    color: #C6F135;
+  }
+</style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — CAPA (escura provisória; roxo sólido sem "escura grain" e sem a luz) -->
+  <div class="slide cover-solid escura grain">
+    <div class="glow glow-purple" style="width: 1500px; height: 1500px; left: -850px; top: 120px;"></div>
+    <div class="logo-mark center">Júlia y Castro</div>
+    <div class="content">
+      <div class="kicker">IA para pequenos negócios</div>
+      <h1 class="cover-title">5 coisas do<br>seu negócio<br>que a IA faz<br>por você</h1>
+      <p class="cover-sub">Com a frase pronta pra copiar em cada uma. Mesmo que você nunca tenha usado.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 — O PROBLEMA -->
+  <div class="slide bg-dark grain">
+    <div class="logo-mark br">Júlia y Castro</div>
+    <div class="content" style="top: 330px;">
+      <div class="kicker muted">O problema</div>
+      <h2 class="h2">O marketing come a<br>semana de quem toca<br>o negócio sozinho</h2>
+      <div class="ruler muted"></div>
+      <p class="body">Legenda, resposta de cliente, promoção da semana, avaliação parada no Google. Nada disso é difícil. É só muito, e sempre sobra pra depois do expediente.</p>
+      <p class="body" style="margin-top: 34px;">Essas cinco você já pode passar hoje, de graça, sem instalar nada.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — TAREFA 01 -->
+  <div class="slide bg-alt grain">
+    <div class="glow halo" style="left: 40px; top: 720px; width: 1000px; height: 500px;"></div>
+    <div class="logo-mark br">Júlia y Castro</div>
+    <div class="content" style="top: 250px;">
+      <div class="task-num">01</div>
+      <h2 class="h2">Escrever seus posts</h2>
+      <div class="ruler"></div>
+      <p class="body">Sem ideia do que postar? Ela escreve a legenda e você escolhe a que soa como você.</p>
+    </div>
+    <div class="ask">
+      <div class="ask-label">Pede assim:</div>
+      <div class="ask-box">“Escreve 3 legendas curtas pro Instagram da minha padaria, divulgando o pão de queijo.”</div>
+      <div class="gain">Trinta minutos de tela em branco viram três opções em um minuto.</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 — TAREFA 02 -->
+  <div class="slide bg-dark grain">
+    <div class="glow glow-lime" style="width: 620px; height: 620px; left: 420px; top: 740px;"></div>
+    <div class="logo-mark br">Júlia y Castro</div>
+    <div class="content" style="top: 250px;">
+      <div class="task-num">02</div>
+      <h2 class="h2">Responder clientes</h2>
+      <div class="ruler"></div>
+      <p class="body">Cliente reclamou e você não sabe o que dizer? Ela te ajuda a responder com calma.</p>
+    </div>
+    <div class="ask">
+      <div class="ask-label">Pede assim:</div>
+      <div class="ask-box">“Me ajuda a responder um cliente chateado com o atraso na entrega. Quero ser gentil e oferecer 10% de desconto.”</div>
+      <div class="gain">Você responde na hora, sem escrever com raiva nem deixar pra amanhã.</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 — TAREFA 03 -->
+  <div class="slide bg-alt grain">
+    <div class="glow halo" style="left: 40px; top: 720px; width: 1000px; height: 500px;"></div>
+    <div class="logo-mark br">Júlia y Castro</div>
+    <div class="content" style="top: 250px;">
+      <div class="task-num">03</div>
+      <h2 class="h2">Criar promoções</h2>
+      <div class="ruler"></div>
+      <p class="body">Semana fraca? Peça ideias de promoção que cabem no seu bolso.</p>
+    </div>
+    <div class="ask">
+      <div class="ask-label">Pede assim:</div>
+      <div class="ask-box">“Me dá 5 ideias de promoção baratas pra atrair clientes pro meu salão de beleza.”</div>
+      <div class="gain">Cinco caminhos pra escolher um, em vez de repetir o desconto de sempre.</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 — TAREFA 04 -->
+  <div class="slide bg-dark grain">
+    <div class="glow glow-lime" style="width: 620px; height: 620px; left: 420px; top: 740px;"></div>
+    <div class="logo-mark br">Júlia y Castro</div>
+    <div class="content" style="top: 250px;">
+      <div class="task-num">04</div>
+      <h2 class="h2">Montar o carrossel<br>da semana</h2>
+      <div class="ruler"></div>
+      <p class="body">Não só o texto: as imagens prontas pra postar, com as suas cores e as suas fontes.</p>
+    </div>
+    <div class="ask">
+      <div class="ask-label">Pede assim:</div>
+      <div class="ask-box">“Monta um carrossel de 6 slides sobre por que o pão de fermentação natural dura mais.”</div>
+      <div class="video-tag">Vídeo no ar hoje no YouTube</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 — TAREFA 05 -->
+  <div class="slide bg-alt grain">
+    <div class="glow halo" style="left: 40px; top: 720px; width: 1000px; height: 500px;"></div>
+    <div class="logo-mark br">Júlia y Castro</div>
+    <div class="content" style="top: 250px;">
+      <div class="task-num">05</div>
+      <h2 class="h2">Responder as avaliações<br>do Google</h2>
+      <div class="ruler"></div>
+      <p class="body">Avaliação sem resposta passa a impressão de que ninguém tá olhando a loja.</p>
+    </div>
+    <div class="ask">
+      <div class="ask-label">Pede assim:</div>
+      <div class="ask-box">“Responde essas 6 avaliações do Google da minha pizzaria. Sem parecer resposta automática.”</div>
+      <div class="video-tag">Vídeo no próximo domingo</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 — O SEGREDO (frase) -->
+  <div class="slide bg-dark grain">
+    <div class="glow glow-purple" style="width: 1300px; height: 1300px; left: -520px; top: 200px;"></div>
+    <div class="logo-mark br">Júlia y Castro</div>
+    <div class="content" style="top: 430px;">
+      <div class="quote-text">Peça como se fosse pra um <span class="lime">funcionário novo</span></div>
+      <p class="quote-attr">Conte o que é o seu negócio, o que você quer e pra quem é. Quanto mais detalhe, melhor a resposta.</p>
+      <p class="quote-attr" style="margin-top: 26px;">Funciona no ChatGPT, no Gemini ou no Claude. Todos têm versão grátis.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 9 — CTA -->
+  <div class="slide cta">
+    <div class="cta-photo"></div>
+    <div class="cta-shade"></div>
+    <img class="cta-logo" src="logo-claro.png" alt="Júlia y Castro">
+    <div class="content">
+      <div class="cta-headline">As duas últimas viram<br>vídeo no meu YouTube</div>
+      <p class="cta-sub">Uma por domingo, com a tela gravada do começo ao fim. A primeira já tá no ar.</p>
+      <div class="cta-button">Link na bio</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Leque do carrossel — Y OS</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        background: transparent;
+      }
+
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* The fan sits in the clear wall area on the left third of the frame.
+         Júlia is right of centre, so nothing here overlaps her. */
+      #fan {
+        position: absolute;
+        left: 140px;
+        top: calc(50% + 40px);
+        width: 660px;
+        height: 600px;
+      }
+
+      /* Lime halo behind the deck — the guide's `.glow-lime`, which lights the
+         element that represents the solution instead of separating it with a
+         shadow. Sits behind every card via z-index. */
+      #halo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1020px;
+        height: 1020px;
+        z-index: 1;
+        pointer-events: none;
+        background: radial-gradient(
+          circle,
+          rgba(198, 241, 53, 0.3) 0%,
+          rgba(198, 241, 53, 0.12) 38%,
+          rgba(198, 241, 53, 0) 68%
+        );
+        will-change: transform, opacity;
+      }
+
+      /* Each slide is 1080x1350 (4:5). At 300px wide it reads as a card
+         without competing with her face for attention. */
+      .slide {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 324px;
+        height: 405px;
+        border-radius: 14px;
+        overflow: hidden;
+        z-index: 2;
+        /* Kept light: the halo does the separating, so this only stops the
+           dark cards from bleeding into each other where they overlap. */
+        box-shadow: 0 6px 18px rgba(12, 10, 20, 0.28);
+        will-change: transform, opacity;
+      }
+
+      .slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="leque"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+      data-duration="7"
+    >
+      <section id="fan-clip" class="clip" data-start="0" data-duration="7">
+        <div id="fan">
+          <div id="halo"></div>
+          <div class="slide" id="s1"><img src="slides/slide-01.png" alt="" /></div>
+          <div class="slide" id="s2"><img src="slides/slide-02.png" alt="" /></div>
+          <div class="slide" id="s3"><img src="slides/slide-03.png" alt="" /></div>
+          <div class="slide" id="s4"><img src="slides/slide-04.png" alt="" /></div>
+          <div class="slide" id="s5"><img src="slides/slide-05.png" alt="" /></div>
+          <div class="slide" id="s6"><img src="slides/slide-06.png" alt="" /></div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Fan geometry, measured from #fan's top-left. Cards step right and
+      // *upward* — slide 1 sits lowest, each next one rides higher — so the deck
+      // opens from the bottom up. Slide 1 keeps the highest z because it is the
+      // cover and carries the headline; later cards tuck behind it as they land.
+      const LAYOUT = [
+        { x:   0, y: 140, rot:  9.5, z: 60 },
+        { x:  54, y: 112, rot:  5.7, z: 50 },
+        { x: 108, y:  84, rot:  1.9, z: 40 },
+        { x: 162, y:  56, rot: -1.9, z: 30 },
+        { x: 216, y:  28, rot: -5.7, z: 20 },
+        { x: 270, y:   0, rot: -9.5, z: 10 },
+      ];
+
+      const IDS = ["#s1", "#s2", "#s3", "#s4", "#s5", "#s6"];
+
+      // The fan block is 560px tall and anchored at top:50%, so lifting it by
+      // half its height centres it against her eyeline.
+      gsap.set("#fan", { yPercent: -50 });
+
+      LAYOUT.forEach((p, i) => {
+        gsap.set(IDS[i], { zIndex: p.z });
+      });
+
+      const tl = gsap.timeline({ paused: true });
+
+      // The halo lights first, so the deck lands into an already-lit space
+      // rather than dragging its own glow in behind it.
+      tl.fromTo(
+        "#halo",
+        { xPercent: -50, yPercent: -50, scale: 0.72, opacity: 0 },
+        { xPercent: -50, yPercent: -50, scale: 1, opacity: 1, duration: 0.9, ease: "power2.out" },
+        0.45
+      );
+
+      // Entrance: cards arrive from slightly left-and-below their resting spot,
+      // rotated flatter than they end up, so the fan *opens* instead of sliding.
+      LAYOUT.forEach((p, i) => {
+        tl.fromTo(
+          IDS[i],
+          {
+            x: p.x - 40,
+            y: p.y + 44,
+            rotation: p.rot * 0.25,
+            scale: 0.9,
+            opacity: 0,
+          },
+          {
+            x: p.x,
+            y: p.y,
+            rotation: p.rot,
+            scale: 1,
+            opacity: 1,
+            duration: 0.52,
+            ease: "power3.out",
+          },
+          0.7 + i * 0.11
+        );
+      });
+
+      // Hold the finished fan, then let the whole group leave together at ~6.3s
+      // so it clears before "levou mais ou menos 10 minutos".
+      tl.to(
+        "#fan",
+        {
+          opacity: 0,
+          scale: 0.965,
+          duration: 0.5,
+          ease: "power2.in",
+          transformOrigin: "50% 50%",
+        },
+        6.3
+      );
+
+      window.__timelines["leque"] = tl;
+    </script>
+  </body>
+</html>

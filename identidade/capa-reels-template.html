@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  Capa de Reels, Júlia y Castro. 1080 x 1920, padrão v2 do design-guide.
+
+  Como usar:
+  1. A capa é escolhida pela URL: capa-reels-template.html?v=1 (ou 2, 3...).
+     Reels novo = uma entrada nova em CAPAS, logo abaixo.
+  2. Renderizar da raiz do projeto:
+     node scripts/render.js "identidade/capa-reels-template.html?v=1" capa.png 1080 1920
+  3. Pra conferir os recortes: acrescentar &guias=1 na URL.
+
+  Área segura: todo texto fica entre y=300 e y=1620 (e 72px das laterais).
+  É o que sobra visível no recorte 3:4 da grade do perfil (1080x1440) e no
+  4:5 do feed (1080x1350). Fora disso, só fundo ou foto.
+
+  Modos (alternar na grade, nunca repetir o do post anterior; regra em
+  marketing/calendario-instagram.md). Foto escura conta como escuro.
+  - foto:   frame do vídeo em tela cheia, sombra só embaixo, texto no rodapé
+  - escuro: #16141F com grão e luz roxa, texto no centro
+  - roxo:   #5B3FA0 sólido com grão, texto no centro
+  - palco:  #16141F com um foco de luz roxa forte atrás de um leque de slides
+            (`leque: [imagens]`), texto embaixo. Lê como roxo na grade sem
+            virar cor chapada: o roxo é luz, não tinta.
+
+  Opções do palco:
+  - leque:    até 6 imagens de slide (1080x1350), a primeira fica na frente
+  - passo:    distância horizontal entre as cartas (padrão 64)
+  - tamanho:  título em px fixo (sem isso, o maior que couber, até 118).
+              Na grade o 9:16 aparece cortado em 3:4 na mesma largura dos
+              carrosséis: ~80px aqui = os 74px da capa do carrossel.
+  - kickerTam, regua [largura, altura], textoTopo: acompanham o tamanho
+
+  Texto: frase curta em caixa normal (igual à capa do carrossel, que divide
+  a mesma grade). O trecho entre [colchetes] fica verde.
+-->
+<script>
+  const V2 = '../marketing/conteudo/carrossel-carrossel-com-ia-2026-09-14/v2/';
+  const ANTES_3COISAS = '../marketing/conteudo/carrossel-3-coisas-pra-pedir-ia-2026-09-27/antes/';
+  const LEQUE_V1 = [1, 2, 3, 4, 5, 6].map(n => ANTES_3COISAS + `slide-0${n}.png`);
+
+  const CAPAS = {
+    // Reels do vídeo 1 (corte da abertura), post 2 da grade: entre a foto
+    // escura do post 1 e o post 3 (escuro). Leque = carrossel feito ao vivo no
+    // vídeo, o mesmo que abre o Reels.
+    // Título em 84px: na grade fica do tamanho do título das capas de
+    // carrossel ao lado (128px gritava do lado do post 1).
+    1: { modo: 'palco', leque: LEQUE_V1, passo: 64,
+         tamanho: 84, kickerTam: 17, regua: [75, 4], textoTopo: 1250,
+         kicker: 'Do pedido ao post', linhas: ['Esse levou', '[10 minutos]'] },
+    // Qui 01/10: corte 2 do vídeo 1 (exemplo de texto)
+    2: { modo: 'escuro',
+         kicker: 'Carrossel com IA', linhas: ['Quanto mais claro', 'você for, [mais', '[bonito sai]'] },
+    // Dom 04/10: abertura do vídeo 2 (exemplo de texto)
+    3: { modo: 'roxo',
+         kicker: 'Vídeo novo', linhas: ['6 avaliações', 'do Google, [nenhuma', '[com cara de robô]'] },
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #16141F; }
+
+  .frame {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    color: #F2F0F5;
+  }
+  .frame.escuro, .frame.palco { background: #16141F; }
+  .frame.roxo { background: #5B3FA0; }
+  .frame.foto { background: #14120d; }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.13;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .palco.grain::after { opacity: 0.16; }
+
+  .glow { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; display: none; }
+  .glow-purple { background: radial-gradient(circle, rgba(91,63,160,0.55) 0%, rgba(91,63,160,0.2) 40%, rgba(91,63,160,0) 68%); }
+  .glow-deep { background: radial-gradient(circle, rgba(22,20,31,0.55) 0%, rgba(22,20,31,0.2) 45%, rgba(22,20,31,0) 70%); }
+  .escuro .glow-purple, .roxo .glow-deep { display: block; }
+
+  .photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: none;
+  }
+  .shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    background: linear-gradient(180deg, rgba(10,9,7,0.35) 0%, rgba(10,9,7,0) 22%, rgba(10,9,7,0) 46%, rgba(10,9,7,0.6) 64%, rgba(10,9,7,0.92) 84%, rgba(10,9,7,0.96) 100%);
+  }
+  .foto .photo, .foto .shade { display: block; }
+
+  /* ---------- palco ---------- */
+  .spot, .vignette { position: absolute; inset: 0; pointer-events: none; display: none; }
+  .palco .spot, .palco .vignette { display: block; }
+  /* Um foco atrás do leque, mais claro no miolo, que morre no escuro da marca. */
+  .spot {
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 720px 640px at 50% 790px, rgba(176,146,255,0.8) 0%, rgba(176,146,255,0) 70%),
+      radial-gradient(ellipse 1350px 1200px at 50% 780px, #5B3FA0 0%, rgba(91,63,160,0.92) 42%, rgba(72,50,132,0.62) 64%, rgba(22,20,31,0) 92%);
+  }
+  /* Topo e rodapé voltam pro escuro: o nome e o título ficam sobre #16141F,
+     onde o verde tem contraste, e o foco parece vir de um ponto só. */
+  .vignette {
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(22,20,31,0.35) 0%, rgba(22,20,31,0) 18%, rgba(22,20,31,0) 58%, rgba(22,20,31,0.86) 68%, #16141F 80%);
+  }
+  /* Perspectiva leve: o leque apoiado num plano, não colado chapado na tela. */
+  .stage { position: absolute; left: 0; right: 0; top: 440px; height: 760px; z-index: 2; perspective: 1800px; }
+  .leque {
+    position: absolute; top: 30px; width: 720px; height: 640px;
+    transform: rotateX(14deg) rotateZ(-2deg); transform-origin: 50% 100%;
+    transform-style: preserve-3d;
+  }
+  .contato {
+    position: absolute; left: 50%; top: 660px; width: 820px; height: 110px; transform: translateX(-50%);
+    border-radius: 50%; background: radial-gradient(ellipse, rgba(8,6,16,0.85) 0%, rgba(8,6,16,0.45) 45%, rgba(8,6,16,0) 72%);
+    filter: blur(6px);
+  }
+  .carta {
+    position: absolute; left: 0; top: 0; width: 400px; height: 500px; border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(242,240,245,0.18);
+    box-shadow: 0 28px 56px rgba(10,6,26,0.55), 0 6px 14px rgba(10,6,26,0.45);
+  }
+  .carta img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  /* Reflexo do foco na aresta de cima de cada carta. */
+  .carta::after {
+    content: ""; position: absolute; inset: 0; border-radius: 14px; pointer-events: none;
+    background: linear-gradient(170deg, rgba(190,165,255,0.16) 0%, rgba(190,165,255,0) 26%);
+  }
+
+  .logo-mark {
+    position: absolute;
+    top: 318px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    opacity: 0.85;
+    white-space: nowrap;
+  }
+
+  /* Área segura: y 300 a 1620 */
+  .content {
+    position: absolute;
+    left: 72px;
+    right: 72px;
+    z-index: 3;
+  }
+  .escuro .content, .roxo .content { top: 300px; bottom: 300px; display: flex; flex-direction: column; justify-content: center; }
+  .foto .content { bottom: 330px; }
+
+  .kicker {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: #C6F135;
+    margin-bottom: 30px;
+  }
+  .ruler { width: 90px; height: 5px; background: #C6F135; border-radius: 3px; margin-top: 44px; }
+
+  .title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+  .palco .title { line-height: 1.0; letter-spacing: -0.035em; }
+  .title .line { display: block; white-space: nowrap; width: max-content; }
+  .title .lime { color: #C6F135; }
+
+  /* Guias de recorte (?guias=1) */
+  .guide { position: absolute; left: 0; right: 0; z-index: 20; pointer-events: none; }
+  .guide span {
+    position: absolute; right: 12px; top: 8px;
+    font-family: "Inter", sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 4px;
+  }
+  .g34 { top: 240px; height: 1440px; border-top: 3px dashed #ff5fa2; border-bottom: 3px dashed #ff5fa2; }
+  .g34 span { color: #ff5fa2; }
+  .g45 { top: 285px; height: 1350px; border-top: 3px dashed #5fd4ff; border-bottom: 3px dashed #5fd4ff; }
+  .g45 span { color: #5fd4ff; top: auto; bottom: 8px; }
+  .gsafe { top: 300px; height: 1320px; left: 72px; right: 72px; border: 2px solid rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+  <div class="frame grain" id="frame">
+    <div class="photo" id="photo"></div>
+    <div class="shade"></div>
+    <div class="spot"></div>
+    <div class="vignette"></div>
+    <div class="glow glow-purple" style="width: 1700px; height: 1700px; left: -900px; top: 420px;"></div>
+    <div class="glow glow-deep" style="width: 1600px; height: 1600px; right: -800px; top: 900px;"></div>
+    <div class="logo-mark">Júlia y Castro</div>
+    <div class="content">
+      <div class="kicker" id="kicker"></div>
+      <div class="title" id="title"></div>
+      <div class="ruler" id="ruler"></div>
+    </div>
+  </div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const cfg = CAPAS[params.get('v') || '1'];
+  window.__avisos = [];
+
+  const frame = document.getElementById('frame');
+  frame.classList.add(cfg.modo);
+
+  if (cfg.modo === 'foto') {
+    const photo = document.getElementById('photo');
+    photo.style.backgroundImage = `url('${cfg.foto}')`;
+    photo.style.backgroundPosition = cfg.fotoPos || '50% 30%';
+    document.getElementById('ruler').remove();
+  }
+
+  // Leque do palco. A carta 1 (a capa do carrossel) fica mais baixa e na
+  // frente; cada próxima sobe um degrau e entra atrás.
+  if (cfg.modo === 'palco' && cfg.leque) {
+    const passo = cfg.passo || 64;
+    const ROT = [9.5, 5.7, 1.9, -1.9, -5.7, -9.5];
+    const n = Math.min(6, cfg.leque.length);
+    const cartas = cfg.leque.slice(0, n).map((src, i) => ({ src, x: i * passo, y: (n - 1 - i) * 28, rot: ROT[i] }));
+    const largura = (n - 1) * passo + 400;
+    const pos = c => `transform:translate(${c.x}px,${c.y}px) rotate(${c.rot}deg)`;
+
+    const stage = document.createElement('div');
+    stage.className = 'stage';
+    stage.innerHTML =
+      '<div class="contato"></div>' +
+      `<div class="leque" style="left:${(1080 - largura) / 2}px;width:${largura}px">` +
+        cartas.map((c, i) => `<div class="carta" style="z-index:${60 - i * 10};${pos(c)}"><img src="${c.src}"></div>`).join('') +
+      '</div>';
+    frame.appendChild(stage);
+
+    const content = document.querySelector('.content');
+    content.style.top = (cfg.textoTopo || 1236) + 'px';
+  }
+
+  const kicker = document.getElementById('kicker');
+  if (cfg.kicker) kicker.textContent = cfg.kicker; else kicker.remove();
+  if (cfg.kickerTam) {
+    kicker.style.fontSize = cfg.kickerTam + 'px';
+    kicker.style.marginBottom = Math.round(cfg.kickerTam * 1.2) + 'px';
+  }
+  const ruler = document.getElementById('ruler');
+  if (ruler && cfg.regua) {
+    ruler.style.width = cfg.regua[0] + 'px';
+    ruler.style.height = cfg.regua[1] + 'px';
+    ruler.style.marginTop = Math.round(cfg.tamanho * 0.36) + 'px';
+  }
+
+  // [trecho] vira verde; o colchete pode abrir numa linha e fechar na outra
+  const title = document.getElementById('title');
+  let open = false;
+  title.innerHTML = cfg.linhas.map(l => {
+    let html = '';
+    for (const part of l.split(/(\[|\])/)) {
+      if (part === '[') open = true;
+      else if (part === ']') open = false;
+      else if (part) html += open ? `<span class="lime">${part}</span>` : part;
+    }
+    return `<span class="line">${html}</span>`;
+  }).join('');
+
+  if (params.get('guias') === '1') {
+    frame.insertAdjacentHTML('beforeend',
+      '<div class="guide g34"><span>grade do perfil 3:4</span></div>' +
+      '<div class="guide g45"><span>feed 4:5</span></div>' +
+      '<div class="guide gsafe"></div>');
+  }
+
+  // Maior tamanho que caiba em 936px de largura e na área segura, a não ser
+  // que a capa fixe `tamanho`.
+  document.fonts.ready.then(() => {
+    if (cfg.tamanho) {
+      title.style.fontSize = cfg.tamanho + 'px';
+      document.body.dataset.ready = '1';
+      return;
+    }
+    const maxW = 900;
+    const content = document.querySelector('.content');
+    let size = 118;
+    const fits = () => {
+      const widest = Math.max(...[...title.querySelectorAll('.line')].map(l => l.getBoundingClientRect().width));
+      const r = content.getBoundingClientRect();
+      const inner = [...content.children].reduce((h, el) => h + el.getBoundingClientRect().height, 0);
+      return widest <= maxW && inner <= 1320 - 120 && (cfg.modo !== 'foto' || r.top >= 380);
+    };
+    title.style.fontSize = size + 'px';
+    while (!fits() && size > 64) { size -= 2; title.style.fontSize = size + 'px'; }
+    if (size < 80) window.__avisos.push(`texto ficou com ${size}px: tente frase mais curta`);
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>

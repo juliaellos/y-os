@@ -243,16 +243,65 @@ padrão automático da skill `/carrossel`). Testado e aprovado em
 
 ## Template de thumbnail
 
+Refeito no padrão v2 em 2026-09-25. Prévias em `identidade/previas/thumb-video-*.png`.
+
 - **Arquivo:** `identidade/thumbnail-template.html` (1280x720, padrão YouTube)
-- **Layout:** kicker + título no canto superior esquerdo, recorte de rosto
-  embaixo à esquerda, print de tela à direita, logo discreto no canto
-  inferior direito
-- **Uso:** duplicar o HTML por vídeo, trocar kicker/título e as duas
-  imagens (rosto e print), renderizar com Playwright em 1280x720
-- **Pendente (antes de 27/09):** alinhar ao padrão v2. O título de 46px
-  fica pequeno no celular, os textos aprovados das thumbnails são frases
-  curtas em caixa alta ("SEM CANVA, SEM DESIGNER"), falta o grão e o
-  espaço do print ainda cita "skill /carrossel"
+- **Layout:** texto grande no canto superior esquerdo, prints embaixo à
+  esquerda, rosto sangrando do lado direito com a borda sumindo no fundo.
+  Fundo `#16141F` com grão, luz roxa no canto de cima e luz verde atrás
+  dos prints
+- **Texto:** frase curta em caixa alta, Space Grotesk 700, 2 ou 3 linhas.
+  O trecho que o vídeo resolve fica em verde (ex: "SEM CANVA, **SEM
+  DESIGNER**"). O tamanho se ajusta sozinho (até 116px) pra caber na
+  coluna de 700px
+- **Prints:** 3 imagens em pé viram um leque (carrossel), 1 imagem deitada
+  vira um card inclinado (print de tela). O card principal leva borda
+  verde de 3px
+- **Sem logo e nada no canto inferior direito:** o YouTube cobre esse
+  canto com a duração do vídeo, e o nome do canal já aparece embaixo da
+  thumbnail
+- **Foto do rosto:** fundo escuro ou neutro, do peito pra cima, olhando
+  pra câmera, com espaço sobrando dos lados. Fundo claro não funde com o
+  degradê
+- **Uso:** cada vídeo é uma entrada em `VIDEOS` no topo do HTML (texto,
+  rosto, prints), escolhida pela URL. Renderizar da raiz:
+  `node scripts/render.js "identidade/thumbnail-template.html?v=1" thumb.png 1280 720`
+- **Limite do YouTube:** 2 MB. O render avisa se passar
+
+---
+
+## Template de capa do Reels
+
+Criado em 2026-09-25. Prévias em `identidade/previas/capa-reels-*.png`.
+
+- **Arquivo:** `identidade/capa-reels-template.html` (1080x1920)
+- **Área segura:** todo texto entre y=300 e y=1620, a 72px das laterais.
+  É o que aparece no recorte 3:4 da grade do perfil (1080x1440) e no 4:5
+  do feed (1080x1350). `&guias=1` na URL desenha os recortes pra conferir
+- **Modos**, seguindo a alternância de capas da grade
+  (`marketing/calendario-instagram.md`):
+  - `foto`: frame do Reels em tela cheia, sombra só embaixo, kicker e
+    título no rodapé
+  - `escuro`: `#16141F` com grão e luz roxa vazando da esquerda, texto no
+    centro, régua verde embaixo
+  - `roxo`: `#5B3FA0` sólido com grão, texto no centro, régua verde
+- **Texto:** frase curta em caixa normal (a capa do Reels divide a grade
+  com a capa do carrossel, então segue o mesmo tom). Space Grotesk 700,
+  tamanho automático até 118px. Trecho em verde entre colchetes. Kicker
+  verde em cima ("VÍDEO NOVO", tema do corte)
+- **Logo em texto** centralizado no topo da área segura
+- **Uso:** cada capa é uma entrada em `CAPAS` no topo do HTML. Renderizar
+  da raiz: `node scripts/render.js "identidade/capa-reels-template.html?v=1" capa.png 1080 1920`
+
+---
+
+## Render
+
+`scripts/render.js` renderiza qualquer template ou carrossel em PNG no
+tamanho exato: `node scripts/render.js "<arquivo.html?parametros>"
+<saida.png> <largura> <altura>`. Usa o Playwright da pasta do carrossel em
+stand-by. Se essa pasta sair, instalar o Playwright na raiz
+(`npm i playwright`).
 
 ---
 

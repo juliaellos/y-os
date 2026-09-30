@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Prompt pronto — Y OS</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Space Grotesk";
+        font-weight: 700;
+        src: url("fonts/SpaceGrotesk-700.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 500;
+        src: url("fonts/Inter-500.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 700;
+        src: url("fonts/Inter-700.woff2") format("woff2");
+      }
+
+      body {
+        margin: 0;
+        background: transparent;
+      }
+
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* Purple light bleeding out past the card's left edge — the guide's
+         `.glow-purple`, large and spilling sideways. One light per piece, and
+         purple keeps this beat distinct from the lime-lit deck. */
+      #glow {
+        position: absolute;
+        left: 150px;
+        top: 50%;
+        width: 900px;
+        height: 900px;
+        z-index: 1;
+        pointer-events: none;
+        background: radial-gradient(
+          circle,
+          rgba(91, 63, 160, 0.55) 0%,
+          rgba(91, 63, 160, 0.2) 40%,
+          rgba(91, 63, 160, 0) 70%
+        );
+        will-change: transform, opacity;
+      }
+
+      /* Narrow column, same footprint as the steps card. */
+      #gift {
+        position: absolute;
+        left: 150px;
+        top: 50%;
+        width: 430px;
+        z-index: 2;
+        background: rgba(32, 29, 46, 0.72);
+        -webkit-backdrop-filter: blur(18px) saturate(1.1);
+        backdrop-filter: blur(18px) saturate(1.1);
+        border: 1px solid #2a2636;
+        border-left: 3px solid #c6f135;
+        border-radius: 14px;
+        padding: 34px 32px 32px;
+        overflow: hidden;
+        will-change: transform, opacity;
+      }
+
+      #gift::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.13;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      #gift-inner {
+        position: relative;
+        z-index: 2;
+      }
+
+      #gift-eyebrow {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: #c6f135;
+        margin: 0 0 16px;
+      }
+
+      #gift-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+        color: #f2f0f5;
+        margin: 0 0 24px;
+      }
+
+      /* A stand-in for the prompt itself: lines that read as "a block of text
+         is waiting for you" without being readable and pulling focus. */
+      #prompt-box {
+        background: rgba(22, 20, 31, 0.66);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 0 0 24px;
+      }
+
+      .line {
+        height: 10px;
+        border-radius: 5px;
+        background: rgba(242, 240, 245, 0.2);
+        margin-bottom: 10px;
+        will-change: transform, opacity;
+      }
+
+      .line:last-child {
+        margin-bottom: 0;
+      }
+
+      .line.accent {
+        background: rgba(198, 241, 53, 0.55);
+      }
+
+      #gift-foot {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 21px;
+        line-height: 1.3;
+        color: #c6f135;
+        margin: 0;
+      }
+
+      #arrow {
+        width: 22px;
+        height: 22px;
+        flex: none;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="prompt"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+      data-duration="5"
+    >
+      <section id="prompt-clip" class="clip" data-start="0" data-duration="5">
+        <div id="glow"></div>
+        <div id="gift">
+          <div id="gift-inner">
+            <p id="gift-eyebrow">No final do vídeo</p>
+            <p id="gift-title">O prompt pronto</p>
+
+            <div id="prompt-box">
+              <div class="line" id="l1" style="width: 94%"></div>
+              <div class="line accent" id="l2" style="width: 72%"></div>
+              <div class="line" id="l3" style="width: 88%"></div>
+              <div class="line" id="l4" style="width: 54%"></div>
+            </div>
+
+            <p id="gift-foot">
+              <svg id="arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5 12h13M13 6l6 6-6 6" stroke="#c6f135" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>Copia, cola e troca o tema</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      gsap.set("#gift", { yPercent: -50 });
+
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        "#glow",
+        { xPercent: -28, yPercent: -50, scale: 0.75, opacity: 0 },
+        { xPercent: -28, yPercent: -50, scale: 1, opacity: 1, duration: 0.85, ease: "power2.out" },
+        0
+      );
+
+      tl.fromTo(
+        "#gift",
+        { x: -34, opacity: 0, scale: 0.96 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" },
+        0.12
+      );
+
+      tl.fromTo(
+        "#gift-eyebrow",
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.34, ease: "power2.out" },
+        0.3
+      );
+
+      tl.fromTo(
+        "#gift-title",
+        { y: 18, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.42, ease: "power3.out" },
+        0.42
+      );
+
+      // Lines draw themselves in from the left, like a prompt being written.
+      ["#l1", "#l2", "#l3", "#l4"].forEach((sel, i) => {
+        tl.fromTo(
+          sel,
+          { scaleX: 0, opacity: 0, transformOrigin: "0% 50%" },
+          { scaleX: 1, opacity: 1, duration: 0.3, ease: "power2.out" },
+          0.74 + i * 0.12
+        );
+      });
+
+      tl.fromTo(
+        "#gift-foot",
+        { y: 14, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+        1.34
+      );
+
+      tl.to(
+        "#gift",
+        { opacity: 0, x: -20, duration: 0.44, ease: "power2.in" },
+        4.5
+      );
+
+      tl.to("#glow", { opacity: 0, duration: 0.5, ease: "power2.in" }, 4.5);
+
+      window.__timelines["prompt"] = tl;
+    </script>
+  </body>
+</html>

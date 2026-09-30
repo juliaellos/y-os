@@ -30,8 +30,8 @@ Júlia y Castro — marca pessoal, não institucional (decidido em 2026-09-14, t
 
 ## 3 primeiros temas de vídeo do YouTube (aprovado em 2026-09-16)
 
-1. **"Como criar carrossel para Instagram com IA (sem depender de app pronto)"** — Frente: Conteúdo/SEO. Tema do vídeo 1 (ver acima). Roteiro de teste em `saidas/roteiro-video-01.md`, carrossel de teste em `marketing/conteudo/carrossel-carrossel-com-ia-2026-09-14/`.
-2. **"Como responder avaliação do Google Meu Negócio com IA"** — Frente: Conteúdo/SEO. Segunda oportunidade da pesquisa de demanda (`marketing/seo/01-pesquisa-demanda.md`): dor concreta e recorrente, baixa concorrência em vídeo. Skill de apoio: `/responder-avaliacoes`. Roteiro em `saidas/roteiro-video-02.md`, isca por DM com a palavra RESPOSTA.
+1. **"Como criar carrossel para Instagram com IA (sem depender de app pronto)"** — Frente: Conteúdo/SEO. Tema do vídeo 1 (ver acima). Roteiro de teste em `marketing/videos/video-01-carrossel-com-ia/roteiro.md`, carrossel de teste em `marketing/conteudo/carrossel-carrossel-com-ia-2026-09-14/`.
+2. **"Como responder avaliação do Google Meu Negócio com IA"** — Frente: Conteúdo/SEO. Segunda oportunidade da pesquisa de demanda (`marketing/seo/01-pesquisa-demanda.md`): dor concreta e recorrente, baixa concorrência em vídeo. Skill de apoio: `/responder-avaliacoes`. Roteiro em `marketing/videos/video-02-responder-avaliacoes/roteiro.md`, isca por DM com a palavra RESPOSTA.
 3. **"Como fazer SEO com IA pra aparecer no Google (e no ChatGPT)"** — Frente: Conteúdo/SEO, ângulo GEO. Fecha o arco de Conteúdo/SEO antes de abrir pra Ads ou Produção no vídeo 4.
 
 Decisão de sequenciamento: aprofundar a frente Conteúdo/SEO nos 3 primeiros vídeos (em vez de 1 vídeo por frente), aproveitando o gap de demanda já validado antes de diluir o foco.
@@ -53,6 +53,8 @@ Definidos em 2026-09-13 no planejamento do canal (`canal-youtube-yos.html`):
 - **YouTube** — motor principal: tutoriais aprofundados, prova de competência, SEO de busca ("como fazer X com IA"). Formato: vídeos 8-18 min + Shorts de recorte.
 - **Instagram** — descoberta e prova social diária: recorte do YouTube + bastidores + carrosséis. Formato: Reels (recorte), carrossel educativo, stories.
 - **LinkedIn** — autoridade B2B: decisor de pequena empresa está lá, não só criador de conteúdo. Formato: texto + carrossel + recorte de vídeo nativo.
+
+**Todo Reels também sobe como Short no YouTube** (decidido em 2026-09-29). Mesmo arquivo de vídeo, com o vídeo longo de origem marcado em "Vídeo relacionado" (é o link clicável do Short). No app, o único campo ao subir é o título, de até 100 caracteres; a descrição entra depois pelo YouTube Studio. Os textos do Short ficam no mesmo arquivo da legenda do Reels.
 
 ## Funil: do vídeo ao curso
 
@@ -97,9 +99,6 @@ Recomendação registrada: não abrir vendas do curso antes de ter ~15-20 vídeo
 ## O que pode esperar
 
 - Definição de tom de voz/estilo de comunicação
-
-## Nota
-- Identidade visual estava marcada como "pode esperar", mas o canal de aquisição depende dela (banners, thumbnails, carrosséis) — vale revisar essa prioridade.
 
 ## Contexto com prazo
 

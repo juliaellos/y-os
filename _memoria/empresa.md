@@ -9,6 +9,8 @@
 **Perfil:** Solopreneur / consultoria em construção
 **Atende clientes:** Dono(a) de pequeno negócio ou profissional de marketing solo/júnior que hoje faz manual (ou terceiriza caro) o que a Y OS automatiza com IA
 **Equipe:** Toca sozinha
+**Contato comercial:** juliaymkt@gmail.com (provisório)
+**Perfis:** YouTube @juliaycastro, Instagram @ycastrojulia
 **Ferramentas:**
 **Principais entregas:**
 

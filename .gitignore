@@ -24,3 +24,13 @@ node_modules/
 # Drop zone do usuário (só o README vai versionado)
 dados/*
 !dados/README.md
+
+# Edições de vídeo — intermediários pesados (o final.mp4 e as decisões vão versionados)
+marketing/videos/*/edit/*/animations/*/renders/
+marketing/videos/*/edit/*/clips_preview/
+marketing/videos/*/edit/*/previas/
+marketing/videos/*/edit/*/verify/
+marketing/videos/*/edit/*/base_*.mp4
+marketing/videos/*/edit/*/preview.mp4
+marketing/videos/*/edit/*/animations/*/fonts/
+marketing/videos/*/edit/*/animations/*/snapshots/

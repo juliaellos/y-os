@@ -2,8 +2,9 @@
 
 > Conteúdo textual pronto pra colar na criação do canal (tarefa 10 do plano
 > de 30 dias). A identidade visual fechou em 14/09 (ver
-> `identidade/design-guide.md`). O banner está em produção em
-> `identidade/banner-youtube/` e a foto de perfil sai da sessão de sábado 26/09.
+> `identidade/design-guide.md`). O banner foi aprovado em 24/09
+> (`identidade/banner-youtube/banner-b2-junto-com-voce.png`) e a foto de
+> perfil sai da sessão de sábado 26/09.
 
 ## Nome do canal
 Júlia y Castro
@@ -33,6 +34,7 @@ Aqui eu mostro como, pra você usar no seu negócio ou no dos seus clientes. Sai
 
 ## Pendente
 - [ ] Foto de perfil (sábado 26/09, mesma foto do Instagram)
-- [ ] Banner (em produção, `identidade/banner-youtube/`)
+- [x] Banner aprovado em 24/09: `identidade/banner-youtube/banner-b2-junto-com-voce.png`
+      (frase "A IA trabalhando junto com você no marketing"). Falta subir no canal.
 - [ ] Verificar a conta por telefone (sem isso o YouTube não libera
       thumbnail personalizada)

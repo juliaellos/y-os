@@ -1,0 +1,1015 @@
+{
+  "language_code": "large",
+  "language_probability": 1.0,
+  "text": "Esse carrossel aqui eu não fiz com o Canva, eu não contratei designer, eu fiz tudo com inteligência artificial, com o Cloud, levou mais ou menos 10 minutos. Vocês provavelmente já vieram aqui no Gemini, no chat GPT, pediram para eles criarem um carrossel para vocês e no final eles entregaram textos que tu precisou copiar, levar para o Canva e fazer toda a edição do carrossel manual. Com o Cloud Code isso é diferente, porque ele já está conectado direto na pasta do teu computador, tu vai fazer o pedido para ele e no final ele vai te entregar as imagens prontas para te postar no teu Instagram. O prompt que eu usei, ele já está pronto para ti, você só precisa mandar a palavra carrossel na minha DM do Instagram, só vai precisar alterar o tema e as cores do teu carrossel.",
+  "words": [
+    {
+      "type": "word",
+      "text": "Esse",
+      "start": 0.09,
+      "end": 0.27,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "carrossel",
+      "start": 0.27,
+      "end": 0.93,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "aqui",
+      "start": 0.93,
+      "end": 1.05,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "eu",
+      "start": 1.05,
+      "end": 1.21,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "não",
+      "start": 1.21,
+      "end": 1.35,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "fiz",
+      "start": 1.35,
+      "end": 1.57,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "com",
+      "start": 1.57,
+      "end": 1.71,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "o",
+      "start": 1.71,
+      "end": 1.81,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Canva,",
+      "start": 1.79,
+      "end": 2.25,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "eu",
+      "start": 2.25,
+      "end": 2.36,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "não",
+      "start": 2.36,
+      "end": 2.52,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "contratei",
+      "start": 2.52,
+      "end": 3.07,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "designer,",
+      "start": 3.0,
+      "end": 3.57,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "eu",
+      "start": 3.57,
+      "end": 3.72,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "fiz",
+      "start": 3.72,
+      "end": 3.94,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "tudo",
+      "start": 3.94,
+      "end": 4.25,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "com",
+      "start": 4.25,
+      "end": 4.41,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "inteligência",
+      "start": 4.41,
+      "end": 4.94,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "artificial,",
+      "start": 4.94,
+      "end": 5.59,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "com",
+      "start": 5.5,
+      "end": 5.76,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "o",
+      "start": 5.76,
+      "end": 5.86,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Cloud,",
+      "start": 5.81,
+      "end": 6.37,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "levou",
+      "start": 6.37,
+      "end": 6.62,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "mais",
+      "start": 6.62,
+      "end": 6.82,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "ou",
+      "start": 6.82,
+      "end": 6.93,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "menos",
+      "start": 6.93,
+      "end": 7.19,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "10",
+      "start": 7.19,
+      "end": 7.5,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "minutos.",
+      "start": 7.5,
+      "end": 8.07,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Vocês",
+      "start": 8.17,
+      "end": 8.41,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "provavelmente",
+      "start": 8.41,
+      "end": 9.16,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "já",
+      "start": 9.16,
+      "end": 9.35,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "vieram",
+      "start": 9.35,
+      "end": 9.63,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "aqui",
+      "start": 9.63,
+      "end": 9.93,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "no",
+      "start": 9.93,
+      "end": 10.05,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Gemini,",
+      "start": 10.05,
+      "end": 10.48,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "no",
+      "start": 10.48,
+      "end": 10.6,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "chat",
+      "start": 10.6,
+      "end": 10.84,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "GPT,",
+      "start": 10.84,
+      "end": 11.14,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "pediram",
+      "start": 11.14,
+      "end": 11.56,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "para",
+      "start": 11.56,
+      "end": 11.84,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "eles",
+      "start": 11.84,
+      "end": 12.04,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "criarem",
+      "start": 12.04,
+      "end": 12.46,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "um",
+      "start": 12.46,
+      "end": 12.58,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "carrossel",
+      "start": 12.58,
+      "end": 13.13,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "para",
+      "start": 13.13,
+      "end": 13.45,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "vocês",
+      "start": 13.45,
+      "end": 13.66,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "e",
+      "start": 13.66,
+      "end": 13.76,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "no",
+      "start": 13.72,
+      "end": 13.83,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "final",
+      "start": 13.83,
+      "end": 14.26,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "eles",
+      "start": 14.26,
+      "end": 14.38,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "entregaram",
+      "start": 14.38,
+      "end": 14.98,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "textos",
+      "start": 14.98,
+      "end": 15.59,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "que",
+      "start": 15.59,
+      "end": 15.73,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "tu",
+      "start": 15.73,
+      "end": 15.84,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "precisou",
+      "start": 15.84,
+      "end": 16.37,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "copiar,",
+      "start": 16.31,
+      "end": 16.82,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "levar",
+      "start": 16.82,
+      "end": 17.1,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "para",
+      "start": 17.1,
+      "end": 17.33,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "o",
+      "start": 17.33,
+      "end": 17.43,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Canva",
+      "start": 17.38,
+      "end": 17.66,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "e",
+      "start": 17.66,
+      "end": 17.76,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "fazer",
+      "start": 17.71,
+      "end": 18.0,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "toda",
+      "start": 18.0,
+      "end": 18.23,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "a",
+      "start": 18.23,
+      "end": 18.33,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "edição",
+      "start": 18.28,
+      "end": 18.62,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "do",
+      "start": 18.62,
+      "end": 18.78,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "carrossel",
+      "start": 18.78,
+      "end": 19.3,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "manual.",
+      "start": 19.3,
+      "end": 19.83,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Com",
+      "start": 19.83,
+      "end": 20.0,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "o",
+      "start": 20.0,
+      "end": 20.1,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Cloud",
+      "start": 20.07,
+      "end": 20.33,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Code",
+      "start": 20.33,
+      "end": 20.55,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "isso",
+      "start": 20.55,
+      "end": 20.77,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "é",
+      "start": 20.77,
+      "end": 20.87,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "diferente,",
+      "start": 20.82,
+      "end": 21.48,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "porque",
+      "start": 21.43,
+      "end": 21.77,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "ele",
+      "start": 21.77,
+      "end": 21.94,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "já",
+      "start": 21.94,
+      "end": 22.05,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "está",
+      "start": 22.05,
+      "end": 22.27,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "conectado",
+      "start": 22.27,
+      "end": 22.77,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "direto",
+      "start": 22.77,
+      "end": 23.1,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "na",
+      "start": 23.1,
+      "end": 23.21,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "pasta",
+      "start": 23.21,
+      "end": 23.5,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "do",
+      "start": 23.5,
+      "end": 23.6,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "teu",
+      "start": 23.6,
+      "end": 23.88,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "computador,",
+      "start": 23.88,
+      "end": 24.44,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "tu",
+      "start": 24.44,
+      "end": 24.56,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "vai",
+      "start": 24.56,
+      "end": 24.71,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "fazer",
+      "start": 24.71,
+      "end": 25.05,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "o",
+      "start": 25.05,
+      "end": 25.15,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "pedido",
+      "start": 25.11,
+      "end": 25.4,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "para",
+      "start": 25.38,
+      "end": 25.6,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "ele",
+      "start": 25.6,
+      "end": 25.82,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "e",
+      "start": 25.82,
+      "end": 25.92,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "no",
+      "start": 25.92,
+      "end": 26.02,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "final",
+      "start": 25.93,
+      "end": 26.2,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "ele",
+      "start": 26.2,
+      "end": 26.38,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "vai",
+      "start": 26.38,
+      "end": 26.55,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "te",
+      "start": 26.55,
+      "end": 26.66,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "entregar",
+      "start": 26.66,
+      "end": 27.21,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "as",
+      "start": 27.21,
+      "end": 27.31,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "imagens",
+      "start": 27.25,
+      "end": 27.59,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "prontas",
+      "start": 27.59,
+      "end": 28.03,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "para",
+      "start": 27.97,
+      "end": 28.19,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "te",
+      "start": 28.19,
+      "end": 28.32,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "postar",
+      "start": 28.32,
+      "end": 28.63,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "no",
+      "start": 28.63,
+      "end": 28.73,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "teu",
+      "start": 28.71,
+      "end": 28.99,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Instagram.",
+      "start": 28.99,
+      "end": 29.81,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "O",
+      "start": 30.05,
+      "end": 30.15,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "prompt",
+      "start": 30.05,
+      "end": 30.44,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "que",
+      "start": 30.44,
+      "end": 30.63,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "eu",
+      "start": 30.63,
+      "end": 30.89,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "usei,",
+      "start": 30.89,
+      "end": 31.17,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "ele",
+      "start": 31.17,
+      "end": 31.33,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "já",
+      "start": 31.33,
+      "end": 31.45,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "está",
+      "start": 31.45,
+      "end": 31.75,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "pronto",
+      "start": 31.75,
+      "end": 32.11,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "para",
+      "start": 32.11,
+      "end": 32.37,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "ti,",
+      "start": 32.37,
+      "end": 32.63,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "você",
+      "start": 32.63,
+      "end": 32.93,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "só",
+      "start": 32.93,
+      "end": 33.03,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "precisa",
+      "start": 33.02,
+      "end": 33.48,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "mandar",
+      "start": 33.48,
+      "end": 33.87,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "a",
+      "start": 33.87,
+      "end": 34.04,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "palavra",
+      "start": 34.04,
+      "end": 34.39,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "carrossel",
+      "start": 34.39,
+      "end": 34.97,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "na",
+      "start": 34.97,
+      "end": 35.27,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "minha",
+      "start": 35.27,
+      "end": 35.46,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "DM",
+      "start": 35.46,
+      "end": 35.56,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "do",
+      "start": 35.55,
+      "end": 35.76,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "Instagram,",
+      "start": 35.76,
+      "end": 36.5,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "só",
+      "start": 36.5,
+      "end": 36.65,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "vai",
+      "start": 36.65,
+      "end": 36.86,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "precisar",
+      "start": 36.86,
+      "end": 37.5,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "alterar",
+      "start": 37.42,
+      "end": 37.91,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "o",
+      "start": 37.91,
+      "end": 38.01,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "tema",
+      "start": 37.98,
+      "end": 38.27,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "e",
+      "start": 38.27,
+      "end": 38.37,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "as",
+      "start": 38.33,
+      "end": 38.48,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "cores",
+      "start": 38.48,
+      "end": 38.82,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "do",
+      "start": 38.82,
+      "end": 38.96,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "teu",
+      "start": 38.96,
+      "end": 39.17,
+      "speaker_id": "speaker_0"
+    },
+    {
+      "type": "word",
+      "text": "carrossel.",
+      "start": 39.17,
+      "end": 40.03,
+      "speaker_id": "speaker_0"
+    }
+  ]
+}

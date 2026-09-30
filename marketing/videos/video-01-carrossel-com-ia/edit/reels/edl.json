@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "note": "Reels do vídeo 1. Timeline de saída = original + 0.2s de respiro no corte da cena 1 pra 2 (8.13s). Tempos 'out' já estão no timeline de saída.",
+  "source": "/Users/juliaycastro/Downloads/01-meu-carrossel-reels.mov",
+  "fps": 30,
+  "output": { "width": 1080, "height": 1920, "frames": 1207, "duration": 40.2333 },
+
+  "breath": {
+    "reason": "Cena 1 termina em 'minutos.' e a 2 começa em 'Vocês' com 0.1s de intervalo. 6 quadros congelados (3 do fim da cena 1, 3 do começo da 2) ficam escondidos dentro do zoom com desfoque. O áudio emenda no ponto do corte original (8.1333s): o 's' final de 'minutos' vai até 8.13s, depois do fechamento do 't' em 8.04-8.07. A v1 emendou em 8.06 e separou o 's' da palavra.",
+    "src_cut_frame": 244,
+    "freeze_before": 3,
+    "freeze_after": 3,
+    "seconds": 0.2,
+    "audio_split_s": 8.1333,
+    "caption_shift_after_s": 8.12
+  },
+
+  "recolor": {
+    "color": [22, 20, 31],
+    "reason": "Fundo preto e sombra (degradê da câmera) viram #16141F. Soma a cor na proporção da sombra: rosto e cabelo não mudam.",
+    "segments": [
+      { "name": "inicio", "src_frames": [0, 243], "y0": 900, "y1": 1325 },
+      { "name": "final", "src_frames": [898, 1200], "y0": 673, "y1": 1198 }
+    ]
+  },
+
+  "transition": {
+    "type": "zoom-blur",
+    "cut_out_frame": 247,
+    "in_frames": [243, 246],
+    "out_frames": [247, 253],
+    "max_scale": 1.16,
+    "max_blur": 0.1,
+    "center": [540, 960]
+  },
+
+  "jump_masked": {
+    "reason": "Salto de take em 36.67s do original. O card do final cresce e mostra 'Só troca:' exatamente nesse quadro.",
+    "src_frame": 1100,
+    "out_frame": 1106
+  },
+
+  "layout": { "end_segment_out_s": 30.1333, "end_segment_out_frame": 904 },
+
+  "overlays": [
+    { "slot": "slot_1", "what": "leque + selo 10 min", "out_start_frame": 0, "frames": 247, "under_transition": true },
+    { "slot": "slot_2", "what": "prompt -> DM -> só troca: tema/cores", "out_start_frame": 904, "frames": 303 },
+    { "slot": "slot_3", "what": "legendas", "out_start_frame": 0, "frames": 1207, "last": true }
+  ],
+
+  "sfx_dir": "/Users/juliaycastro/.claude/skills/media-use/audio/assets/sfx",
+  "sfx": [
+    { "what": "leque abrindo", "file": "whoosh-short.mp3", "at": 0.0, "gain_db": -22 },
+    { "what": "cartas do leque", "file": "synth:flick", "at": [0.06, 0.13, 0.2, 0.27, 0.34, 0.41], "peak_dbfs": -26 },
+    { "what": "selo 10 min", "file": "pop.mp3", "at": 0.67, "gain_db": -20 },
+    { "what": "corte cena 1 pra 2", "file": "whoosh-short.mp3", "at": 8.073, "gain_db": -17 },
+    { "what": "troca de tela: Canva", "file": "click-soft.mp3", "at": 17.027, "gain_db": -18 },
+    { "what": "troca de tela: Claude Code", "file": "click-soft.mp3", "at": 20.26, "gain_db": -18 },
+    { "what": "troca de tela: prompt", "file": "click-soft.mp3", "at": 25.06, "gain_db": -18 },
+    { "what": "carrossel pronto", "file": "sparkle.mp3", "at": 27.917, "gain_db": -20 },
+    { "what": "card do prompt entra", "file": "whoosh-short.mp3", "at": 30.19, "gain_db": -21 },
+    { "what": "carrossel digitado", "file": "typing.mp3", "at": 34.583, "offset": 0.45, "dur": 0.5, "gain_db": -9 },
+    { "what": "mensagem enviada", "file": "pop.mp3", "at": 35.023, "gain_db": -18 },
+    { "what": "chip tema", "file": "click-soft.mp3", "at": 38.16, "gain_db": -18 },
+    { "what": "chip cores", "file": "click-soft.mp3", "at": 38.66, "gain_db": -18 }
+  ],
+  "audio_fade_ms": 30,
+  "limiter_db": -1.5
+}

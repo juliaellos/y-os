@@ -24,24 +24,33 @@ escorregar pra semana que vem sem quebrar o lançamento.
    do jeito que vai aparecer no vídeo, mas sem gravar (ver sexta).
 4. ~~**Post 1: finalizar os ajustes e publicar.**~~ Publicado em 24/09
    (v2, 7 slides). Ver "Ajustes do post 1" no fim deste arquivo.
-5. **Resposta automática da DM** pras 3 palavras (CARROSSEL, RESPOSTA,
-   APARECER). Nativo, pelo Meta Business Suite, sem ferramenta paga. O
-   roteiro 1 ainda não tem a mensagem da isca escrita, só o prompt. Os
-   roteiros 2 e 3 já têm.
-6. **Banner do YouTube.**
-7. **Post 2** (carrossel novo) agendado pro sábado.
-8. **Sábado:** gravar os 3 vídeos.
-9. **Domingo:** editar o vídeo 1, fazer a thumbnail, subir e postar o Reels.
+5. **Resposta automática da DM.** Nativo, pelo Meta Business Suite, sem
+   ferramenta paga. Pra domingo, só a palavra do vídeo 1 (CARROSSEL)
+   precisa estar configurada — RESPOSTA e APARECER podem esperar a
+   semana que vem, quando os vídeos 2 e 3 forem ao ar. As 3 mensagens
+   de isca já estão escritas nos roteiros (roteiro 1 atualizado em
+   25/09).
+6. ~~**Banner do YouTube.**~~ Aprovado em 24/09 (B2, cursores). Falta
+   subir no canal.
+7. **Post 3** (carrossel otimizado do vídeo 1; era o post 2 até 29/09,
+   quando o Reels passou na frente) — em alteração pela Júlia (28/09).
+   Capa escura provisória desde 29/09. Ainda não está pronto pra agendar.
+8. ~~**Sábado:** gravar os 3 vídeos.~~ Vídeos 1 e 2 gravados. O vídeo 3
+   ainda não foi gravado.
+9. ~~**Domingo:** editar o vídeo 1, fazer a thumbnail, subir~~ — feito, o
+   vídeo 1 está publicado. ~~Reels~~ publicado em 29/09, como post 2.
 
 ---
 
 ## Quinta 24/09 (noite, ~2h)
 
 - [x] @ definido, roteiros e post 1 atualizados (feito em 23/09)
-- [ ] Converter a conta @ycastrojulia pra profissional e arquivar os
-      posts pessoais
+- [ ] **Bloqueado até ~11/10:** converter a conta @ycastrojulia pra
+      profissional e arquivar os posts pessoais. A Meta trava a troca de @
+      por 13 dias (seguro contra roubo de @), contando de 28/09. Não dá pra
+      antecipar — só voltar nessa data.
 - [x] Títulos, descrições e texto das thumbnails dos 3 vídeos aprovados
-      (24/09). Ver `saidas/titulos-descricoes-videos.md`.
+      (24/09). Ver `marketing/videos/video-0X-*/titulo-descricao.md`.
 - [x] Termo de busca já coberto na abertura dos 3 roteiros, sem ajuste
       necessário (conferir no ensaio de sexta)
 - [x] Post 1: ajustes aplicados numa v2 de 7 slides (ver "Ajustes do
@@ -56,7 +65,7 @@ escorregar pra semana que vem sem quebrar o lançamento.
 
 ## Sexta 25/09 (noite, ~2h30)
 
-- [ ] **Ensaio dos 3 pedidos (1h, ~20 min por vídeo).** Pra cada vídeo:
+- [x] **Ensaio dos 3 pedidos (1h, ~20 min por vídeo).** Pra cada vídeo:
       1. Cria uma pasta vazia na área de trabalho (ex: "ensaio-video-1")
       2. Abre essa pasta no Claude Code, como o roteiro mostra
       3. Cola o pedido do roteiro e segue até o fim, sem gravar
@@ -76,55 +85,63 @@ escorregar pra semana que vem sem quebrar o lançamento.
       Se algo sair diferente do roteiro, ajusta o roteiro na sexta. Se o
       carrossel do ensaio do vídeo 1 sair bonito, ele já serve de print
       pra thumbnail.
-- [ ] Deixar prontos os materiais de gravação: notas com os pedidos, print
-      das 6 avaliações, ficha da pizzaria, texto antigo da Dona Nina
-- [ ] Banner do YouTube. Claude monta, tu aprova e sobe (20 min).
-      Recomendação de texto: a promessa em uma linha + "Vídeo novo todo
-      domingo". Na TV e no celular só aparece a faixa do meio do banner,
-      então ele leva pouco texto.
-- [ ] Post 2: produzir com `/carrossel` e agendar pro sábado de manhã
-      (40 min de revisão tua)
-- [ ] DM (30 min):
-  - Claude escreve a mensagem da isca CARROSSEL (as de RESPOSTA e
-    APARECER já estão nos roteiros 2 e 3)
-  - No computador: Meta Business Suite > Caixa de entrada > Automações >
-    Palavras-chave personalizadas > Instagram. Uma automação por palavra
-  - A palavra tem que bater exatamente, maiúscula e minúscula contam.
-    Cada automação aceita até 5 variações: cadastrar CARROSSEL,
-    carrossel e Carrossel (idem pras outras duas)
-  - A resposta sai em até 15 minutos, não na hora
-  - Se a opção não aparecer, trocar o tipo da conta de Criador pra Empresa
-    nas configurações do Instagram
+- [x] Materiais de gravação gerados em `marketing/videos/video-02-responder-avaliacoes/materiais-gravacao/`:
+      print das 6 avaliações (`print-avaliacoes.png`, pronto pra arrastar
+      no Claude Code) e ficha da pizzaria + texto "antes" da Dona Nina +
+      resposta pro Ricardo (`ficha-pizzaria-dona-nina.md`). Falta só
+      deixar os pedidos (prompts) numa nota — já estão prontos nos
+      roteiros 1, 2 e 3, é só copiar de lá na hora
+- [x] Banner do YouTube: montado e aprovado em 24/09. Versão B2 (cursores),
+      frase "A IA trabalhando junto com você no marketing" + "Vídeo novo
+      toda semana". Arquivo:
+      `identidade/banner-youtube/banner-b2-junto-com-voce.png`
+- [X] Subir o banner no canal (YouTube Studio > Personalização > Branding)
+- [ ] Post 3 (era o post 2): primeira versão produzida em 27/09 (versão otimizada do
+      carrossel que saiu no vídeo 1, em vez das 5 tarefas planejadas).
+      Slides em
+      `marketing/conteudo/carrossel-3-coisas-pra-pedir-ia-2026-09-27/instagram/`,
+      legenda em `legenda.md`. **Em alteração pela Júlia (28/09)** — depois
+      das mudanças, revisar e agendar
+- [x] DM: automação da palavra CARROSSEL configurada no Meta Business
+      Suite (25/09), com a mensagem de `marketing/videos/video-01-carrossel-com-ia/roteiro.md`
+      (seção "A isca"). RESPOSTA e APARECER ficam pra semana que vem,
+      junto com os vídeos 2 e 3.
 
 ## Sábado 26/09: gravação
 
-- [ ] Manhã, com luz de janela (15 min): foto de perfil + 3 fotos de rosto
+- [x] Manhã, com luz de janela (15 min): foto de perfil + 3 fotos de rosto
       pra thumbnail, uma expressão por vídeo, fundo liso
-- [ ] Post 2 sai sozinho (agendado)
-- [ ] Gravar vídeo 1, 2 e 3, nessa ordem, cada um numa pasta e conversa
-      novas (os roteiros já detalham). Três cuidados novos, pensando nos
-      Reels:
+- [ ] Post 3 (era o post 2) sai sozinho (agendar depois das alterações e da tua revisão)
+- [x] Gravar vídeo 1 — gravado, editado e publicado
+- [x] Gravar vídeo 2 — gravado, ainda bruto (sem edição)
+- [ ] Gravar vídeo 3. Três cuidados, pensando nos Reels:
   - **Zoom do app em 125 a 150% (Cmd +) antes de gravar.** A tela
     horizontal vai virar Reels vertical e precisa ser lida no celular.
   - Falar o termo de busca do título na abertura
   - Anotar o minuto de 2 momentos bons por vídeo. Viram os cortes.
-- [ ] Noite: começar a edição do vídeo 1, se sobrar energia
+- [x] Noite: começar a edição do vídeo 1
 
 ## Domingo 27/09: lançamento
 
-- [ ] Manhã: terminar a edição do vídeo 1 (corte seco + legenda embutida)
-- [ ] Thumbnail do vídeo 1 com a foto + print (Claude monta no
+- [x] Manhã: terminar a edição do vídeo 1 (corte seco + legenda embutida)
+- [x] Thumbnail do vídeo 1 com a foto + print (Claude monta no
       `identidade/thumbnail-template.html`, 15 min)
-- [ ] Descrição final: completar os timestamps com os minutos reais da edição
-- [ ] Subir no YouTube, criar a playlist "Conteúdo e SEO", publicar no
+- [x] Descrição final: timestamps completados com os minutos reais da edição
+- [x] Subir no YouTube, criar a playlist "Conteúdo e SEO", publicar no
       fim da tarde
-- [ ] Trocar o link da bio do Instagram pro vídeo e voltar a legenda do
-      post 1 pra "link na bio"
-- [ ] Reels: corte da abertura (0:00 a 0:40) em vertical, com capa. Postar
-      depois que o vídeo estiver no ar
-- [ ] Stories com link pro vídeo. É o único lugar do Instagram com link
-      clicável fora da bio.
-- [ ] Testar a automação: mandar CARROSSEL na DM de outra conta e esperar
+- [~] Trocar o link da bio do Instagram pro vídeo e voltar a legenda do
+      post 1 pra "link na bio" — **decidido não fazer** (28/09). A bio
+      segue apontando pro canal, não pro vídeo.
+- [x] Reels: corte da abertura (0:00 a 0:40) em vertical, com capa.
+      **Publicado em 29/09 como post 2.** Editado com `/editar-video`: fundo
+      e sombra na cor da marca, leque de carrosséis na abertura, cards
+      prompt → DM no final, legenda embutida e efeitos sonoros. Capa no
+      modo palco do template, legenda curta no molde da do post 1. Tudo em
+      `marketing/videos/video-01-carrossel-com-ia/edit/reels/` (`final.mp4`,
+      `capa.png`, `legenda.md`)
+- [~] Stories com link pro vídeo (único lugar do Instagram com link
+      clicável fora da bio). **Adiado** (28/09) — não entra nesse ciclo.
+- [x] Testar a automação: mandar CARROSSEL na DM de outra conta e esperar
       os 15 minutos
 
 **Se o domingo apertar:** o que não pode ficar pra depois é a thumbnail e
@@ -165,7 +182,24 @@ Feito na v2 em 24/09 (revisão da Júlia):
 
 ## Semana que vem (28/09 em diante)
 
-- Editar os vídeos 2 e 3 ao longo da semana (vídeo 2 precisa estar pronto
-  até sábado 03/10)
+Virou a semana atual. O plano detalhado está em
+`marketing/plano-semana-28-09.md` — este bloco só aponta pra lá.
+
+- Editar o vídeo 2 (gravado, bruto) — prazo sábado 03/10
+- Gravar e editar o vídeo 3
+- Post 3 (era o post 2): fechar as alterações, revisar e agendar
+- ~~Reels do vídeo 1: finalizar e postar~~ — publicado em 29/09 (post 2)
+- DM: configurar as palavras RESPOSTA e APARECER
+- @ do Instagram: destravado a partir de ~11/10 (trava de 13 dias da Meta)
 - Trailer do canal, destaques do Instagram e banner do LinkedIn ficam pra
   depois do lançamento
+
+---
+
+## Vídeo futuro: otimizar carrossel pra conversão
+
+O carrossel montado ao vivo no vídeo 1 ficou congelado em
+`marketing/conteudo/carrossel-3-coisas-pra-pedir-ia-2026-09-27/antes/`,
+e o post 3 é a versão otimizada dele. As 7 mudanças estão listadas em
+`otimizacoes.md`, na mesma pasta. É o roteiro bruto do vídeo de
+"antes e depois".

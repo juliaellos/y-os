@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  Banner do canal, variação B4 (conversa): "A IA trabalhando junto com você no marketing".
+  Conceito: a frase vira um diálogo. A IA começa no balão escuro e você
+  completa no balão verde, como no chat do carrossel publicado.
+  Tudo o que é texto ou logo fica dentro de .safe (1235 x 338, centro).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #16141F; }
+
+  .banner {
+    width: 2560px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    color: #F2F0F5;
+    background: radial-gradient(ellipse 65% 60% at 50% 50%, #1c1929 0%, #16141F 60%, #110f18 100%);
+  }
+  .light {
+    position: absolute;
+    width: 1900px;
+    height: 1100px;
+    left: 330px;
+    top: 170px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(91,63,160,0.34) 0%, rgba(91,63,160,0.1) 45%, rgba(91,63,160,0) 70%);
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.12;
+    background-size: 256px 256px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- ÁREA SEGURA ---------- */
+  .safe {
+    position: absolute;
+    left: 662.5px;
+    top: 551px;
+    width: 1235px;
+    height: 338px;
+    z-index: 3;
+  }
+
+  /* Balões: a IA à esquerda, você à direita, logo abaixo. A logo ocupa o
+     canto livre embaixo à esquerda e a frequência, o canto livre em cima à direita. */
+  .bubble {
+    position: absolute;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    white-space: nowrap;
+    padding: 26px 44px 32px;
+    border-radius: 44px;
+  }
+  .bubble.ai {
+    left: 8px;
+    top: 26px;
+    background: #262236;
+    border: 2px solid rgba(242,240,245,0.1);
+    border-bottom-left-radius: 12px;
+  }
+  .bubble.you {
+    right: 8px;
+    top: 176px;
+    background: #C6F135;
+    color: #16141F;
+    border-bottom-right-radius: 12px;
+  }
+
+  .logo { position: absolute; left: 14px; top: 176px; height: 138px; display: flex; align-items: center; }
+  .logo img { height: 54px; display: block; }
+  .cadence {
+    position: absolute;
+    right: 14px;
+    top: 26px;
+    height: 138px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.3;
+    color: rgba(242,240,245,0.72);
+  }
+</style>
+</head>
+<body>
+
+  <div class="banner grain">
+    <div class="light"></div>
+
+    <div class="safe">
+      <div class="bubble ai">A IA trabalhando junto</div>
+      <div class="bubble you">com você no marketing</div>
+      <div class="logo"><img src="../logo-claro.png" alt="Júlia y Castro"></div>
+      <div class="cadence">Vídeo novo<br>toda semana</div>
+    </div>
+  </div>
+
+<script>
+  document.fonts.ready.then(() => { document.body.dataset.ready = '1'; });
+</script>
+</body>
+</html>

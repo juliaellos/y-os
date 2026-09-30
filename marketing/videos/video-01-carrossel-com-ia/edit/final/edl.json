@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "sources": { "final": "/Users/juliaycastro/Downloads/final.mov" },
+  "ranges": [
+    {
+      "source": "final",
+      "start": 0.44,
+      "end": 29.0,
+      "beat": "FECHO+DM+CTA",
+      "quote": "E é isso, você instalou o cloud... que é disso que eu vou falar toda semana.",
+      "reason": "Fala contínua, sem corte interno. Entrada aparada em 0.44s (0.1s de pad antes da primeira palavra em 0.54s); cauda até o fim do arquivo."
+    }
+  ],
+  "subtitles": null
+}

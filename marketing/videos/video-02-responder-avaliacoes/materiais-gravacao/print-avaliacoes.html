@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Avaliações — Pizzaria Dona Nina</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 900px;
+    background: #fff;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #202124;
+  }
+
+  .header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #e8eaed;
+  }
+
+  .biz-name {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #202124;
+  }
+
+  .rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .rating-number {
+    font-size: 16px;
+    font-weight: 500;
+    color: #202124;
+  }
+
+  .stars {
+    color: #fbbc04;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .rating-count {
+    color: #70757a;
+    font-size: 14px;
+  }
+
+  .reviews {
+    padding: 8px 24px 24px;
+  }
+
+  .review {
+    display: flex;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid #f1f3f4;
+  }
+
+  .review:last-child { border-bottom: none; }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .review-body { flex: 1; }
+
+  .review-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #202124;
+  }
+
+  .review-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  .review-stars {
+    color: #fbbc04;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .review-date {
+    color: #70757a;
+    font-size: 12px;
+  }
+
+  .review-text {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #3c4043;
+  }
+
+  .review-text.empty {
+    color: #9aa0a6;
+    font-style: italic;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="biz-name">Pizzaria Dona Nina</div>
+    <div class="rating-summary">
+      <span class="rating-number">4,7</span>
+      <span class="stars">★★★★★</span>
+      <span class="rating-count">· 6 avaliações do Google</span>
+    </div>
+  </div>
+
+  <div class="reviews">
+
+    <div class="review">
+      <div class="avatar" style="background:#1a73e8;">C</div>
+      <div class="review-body">
+        <div class="review-name">Camila Rocha</div>
+        <div class="review-meta">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">há 3 dias</span>
+        </div>
+        <div class="review-text">Melhor pizza do bairro! A borda recheada de catupiry é outro nível e chegou quentinha.</div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="avatar" style="background:#e8710a;">M</div>
+      <div class="review-body">
+        <div class="review-name">Marcos Vinícius</div>
+        <div class="review-meta">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">há 4 dias</span>
+        </div>
+        <div class="review-text empty">Sem comentário</div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="avatar" style="background:#9334e6;">F</div>
+      <div class="review-body">
+        <div class="review-name">Fernanda Lima</div>
+        <div class="review-meta">
+          <span class="review-stars">★★★★☆</span>
+          <span class="review-date">há 1 semana</span>
+        </div>
+        <div class="review-text">Pizza muito boa, massa leve. Só achei o salão bem barulhento na sexta à noite.</div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="avatar" style="background:#188038;">R</div>
+      <div class="review-body">
+        <div class="review-name">Ricardo Alves</div>
+        <div class="review-meta">
+          <span class="review-stars">★★☆☆☆</span>
+          <span class="review-date">há 1 semana</span>
+        </div>
+        <div class="review-text">Pedi às 20h e a pizza só chegou 21h40, fria. Uma pena, porque o sabor é bom.</div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="avatar" style="background:#d93025;">L</div>
+      <div class="review-body">
+        <div class="review-name">Lúcia Mendes</div>
+        <div class="review-meta">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">há 2 semanas</span>
+        </div>
+        <div class="review-text">Atendimento maravilhoso. O rapaz do caixa teve a maior paciência com a minha mãe, que é cadeirante, e ajudou a gente a achar uma mesa boa.</div>
+      </div>
+    </div>
+
+    <div class="review">
+      <div class="avatar" style="background:#1a73e8;">B</div>
+      <div class="review-body">
+        <div class="review-name">Bruno Costa</div>
+        <div class="review-meta">
+          <span class="review-stars">★★★★★</span>
+          <span class="review-date">há 3 semanas</span>
+        </div>
+        <div class="review-text">Recomendo a de calabresa com cebola roxa. Virei cliente.</div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -128,12 +128,60 @@ Antes de fazer o visual, me mostra o texto de cada slide pra eu aprovar.
 
 ---
 
+## A isca (o que você manda na DM de quem escrever CARROSSEL)
+
+**Mensagem:**
+
+> Oi! Aqui tá o prompt do vídeo pra criar um carrossel pro Instagram com IA.
+>
+> Como usar:
+> 1. Troca o tema e as cores pelas do seu negócio.
+> 2. Cola o pedido inteiro no Claude Code, do jeito que mostrei no vídeo.
+> 3. Ele te devolve o texto dos slides primeiro, pra você aprovar antes do visual.
+
+**Pedido (vai logo abaixo da mensagem):**
+
+```
+Cria um carrossel pro Instagram sobre: 3 coisas que você pode pedir pra IA fazer no seu negócio hoje.
+Público: donos de pequenos negócios que nunca usaram IA.
+
+- 6 slides, no tamanho 1080x1350
+- Slide 1: capa com título curto e forte (no máximo 8 palavras)
+- Slides 2 a 5: uma ideia por slide, texto curto e fácil de ler
+- Slide 6: chamada pra ação: "Me segue pra mais dicas de IA"
+- Visual: fundo roxo bem escuro (#16141F), destaque em verde-limão (#C6F135),
+  títulos na fonte Space Grotesk e texto na fonte Inter.
+  Estilo limpo e moderno, com bastante espaço vazio, sem emoji.
+- Coloca o meu @ no rodapé de todos os slides: @ycastrojulia
+
+Monta tudo num arquivo HTML e depois exporta cada slide como imagem PNG
+numa pasta chamada "slides".
+Antes de fazer o visual, me mostra o texto de cada slide pra eu aprovar.
+```
+
+---
+
 ## Notas de gravação
 
 - **Tema:** 3 coisas que você pode pedir pra IA fazer no seu negócio hoje
 - **Público:** donos de pequenos negócios que nunca usaram IA
-- **Teste o prompt uma vez antes de gravar**, numa pasta nova, pra saber o que vai aparecer na tela e quanto tempo demora.
-- A instalação pode ser mostrada rápido: grava a página de download e o login, e corta a espera.
+
+**O que deixar preparado antes de gravar:**
+
+1. **O prompt numa nota, pronto pra colar.** Não digita ao vivo (seção 4).
+2. **Uma pasta nova e vazia**, tipo "meu-carrossel", pra criar e selecionar na tela (seção 3).
+3. **App do Claude instalado e logado antes de gravar.** Grava só a página de download e a tela de login rápido — a instalação em si e a espera não precisam aparecer inteiras.
+4. **O @ na tela do fechamento:** @ycastrojulia, com Y no começo.
+
+**Antes de apertar o rec:**
+
+- **Teste o prompt uma vez**, numa pasta de teste, pra saber o que vai aparecer na tela, se ele para pra mostrar o texto antes do visual, e quanto tempo demora. Se passar muito de 8 min, ajusta o corte na edição.
 - Confira os nomes que aparecem no seu app (a parte do "Code", o botão de permitir) e fale igual ao que tá na tela.
+- **O @ é @ycastrojulia nos 3 vídeos** (decidido em 2026-09-23). Sempre falar "com Y no começo" e deixar o @ escrito na tela.
+
+**No dia:**
+
+- Grava esse vídeo primeiro — os outros dois citam ele como anterior.
+- Abre uma conversa nova no Claude Code, na pasta nova, pra não aparecer nada de conversas antigas.
 - Deixe o Instagram pronto pra receber a palavra CARROSSEL na DM antes de publicar o vídeo.
 - Errou uma frase? Respira, repete a frase e segue. Corta na edição. Não precisa sair perfeito, precisa sair.

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Prompt, DM e só troca (Reels) — Y OS</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Space Grotesk";
+        font-weight: 700;
+        src: url("fonts/SpaceGrotesk-700.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 500;
+        src: url("fonts/Inter-500.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 600;
+        src: url("fonts/Inter-600.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 700;
+        src: url("fonts/Inter-700.woff2") format("woff2");
+      }
+
+      body {
+        margin: 0;
+        background: transparent;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* At the end the camera sits higher: the free band is ~200-680px, her
+         bun starts ~720. The card is centred at 440 and never passes 610. */
+      .glow {
+        position: absolute;
+        left: 540px;
+        top: 440px;
+        width: 1060px;
+        height: 1060px;
+        z-index: 1;
+        pointer-events: none;
+        will-change: transform, opacity;
+      }
+
+      /* Purple while it is "the prompt" (a gift, not yet the action)... */
+      #glow-p {
+        background: radial-gradient(
+          circle,
+          rgba(91, 63, 160, 0.55) 0%,
+          rgba(91, 63, 160, 0.2) 40%,
+          rgba(91, 63, 160, 0) 70%
+        );
+      }
+
+      /* ...lime from the moment it becomes the thing she asks you to do. */
+      #glow-l {
+        background: radial-gradient(
+          circle,
+          rgba(198, 241, 53, 0.26) 0%,
+          rgba(198, 241, 53, 0.1) 40%,
+          rgba(198, 241, 53, 0) 70%
+        );
+      }
+
+      #card {
+        position: absolute;
+        left: 140px;
+        top: 440px;
+        width: 800px;
+        height: 348px;
+        box-sizing: border-box;
+        z-index: 2;
+        background: rgba(32, 29, 46, 0.94);
+        border: 1px solid #2a2636;
+        border-radius: 14px;
+        overflow: hidden;
+        will-change: transform, opacity, height;
+      }
+
+      #card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 5;
+        pointer-events: none;
+        opacity: 0.13;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 36px 40px;
+        z-index: 2;
+      }
+
+      /* ---------- page A: o prompt pronto ---------- */
+
+      #eyebrow {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: #c6f135;
+        margin: 0 0 16px;
+      }
+
+      #title {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 54px;
+        line-height: 56px;
+        letter-spacing: -0.03em;
+        color: #f2f0f5;
+        margin: 0 0 26px;
+      }
+
+      /* Lines that read as "a block of text is waiting for you" without
+         being readable and pulling focus from her face. */
+      #prompt-box {
+        background: rgba(22, 20, 31, 0.7);
+        border-radius: 10px;
+        padding: 24px;
+      }
+
+      .line {
+        height: 12px;
+        border-radius: 6px;
+        background: rgba(242, 240, 245, 0.22);
+        margin-bottom: 12px;
+        transform-origin: 0 50%;
+      }
+
+      .line:last-child {
+        margin-bottom: 0;
+      }
+
+      .line.accent {
+        background: rgba(198, 241, 53, 0.6);
+      }
+
+      /* ---------- page B: a DM ---------- */
+
+      #head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        height: 40px;
+        margin: 0 0 24px;
+      }
+
+      #ig {
+        width: 36px;
+        height: 36px;
+        flex: none;
+      }
+
+      #ig rect,
+      #ig circle,
+      #ig line {
+        fill: none;
+        stroke: #f2f0f5;
+        stroke-width: 2.3;
+        stroke-linecap: round;
+      }
+
+      #head-text {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 1;
+        color: #f2f0f5;
+      }
+
+      /* A message composer: the word gets typed, then sent. */
+      #field {
+        position: relative;
+        height: 100px;
+        box-sizing: border-box;
+        border-radius: 50px;
+        background: rgba(22, 20, 31, 0.88);
+        border: 1.5px solid #2a2636;
+        display: flex;
+        align-items: center;
+        padding: 0 14px 0 38px;
+        transform-origin: 50% 50%;
+      }
+
+      #typed {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 48px;
+        letter-spacing: -0.02em;
+        color: #f2f0f5;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        height: 100%;
+      }
+
+      #typed .ch {
+        display: none;
+      }
+
+      #placeholder {
+        position: absolute;
+        left: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 34px;
+        color: rgba(242, 240, 245, 0.4);
+      }
+
+      #caret {
+        display: inline-block;
+        width: 4px;
+        height: 50px;
+        margin-left: 4px;
+        border-radius: 2px;
+        background: #c6f135;
+      }
+
+      #send {
+        width: 72px;
+        height: 72px;
+        flex: none;
+        border-radius: 50%;
+        background: rgba(242, 240, 245, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #send svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      #send path {
+        fill: none;
+        stroke: #f2f0f5;
+        stroke-width: 2.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* ---------- row C: só troca ---------- */
+
+      #swap {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 56px;
+        margin-top: 26px;
+      }
+
+      #swap-label {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        color: rgba(242, 240, 245, 0.74);
+        margin-right: 4px;
+      }
+
+      /* The guide's `.chip`: white hairline at 28%. */
+      .chip {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 56px;
+        box-sizing: border-box;
+        padding: 0 20px;
+        border: 1.5px solid rgba(242, 240, 245, 0.28);
+        border-radius: 10px;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        color: #f2f0f5;
+        transform-origin: 50% 50%;
+      }
+
+      .dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="final-reels"
+      data-start="0"
+      data-width="1080"
+      data-height="1920"
+      data-duration="10.1"
+    >
+      <section id="final-clip" class="clip" data-start="0" data-duration="10.1">
+        <div class="glow" id="glow-p"></div>
+        <div class="glow" id="glow-l"></div>
+
+        <div id="card">
+          <div class="page" id="page-a">
+            <p id="eyebrow">Pronto pra usar</p>
+            <p id="title">O prompt que eu usei</p>
+            <div id="prompt-box">
+              <div class="line" style="width: 94%"></div>
+              <div class="line accent" style="width: 72%"></div>
+              <div class="line" style="width: 86%"></div>
+              <div class="line" style="width: 64%"></div>
+              <div class="line" style="width: 38%"></div>
+            </div>
+          </div>
+
+          <div class="page" id="page-b">
+            <div id="head">
+              <svg id="ig" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+                <circle cx="12" cy="12" r="4.6" />
+                <line x1="17.6" y1="6.4" x2="17.62" y2="6.4" stroke-width="3" />
+              </svg>
+              <span id="head-text">Manda na minha DM</span>
+            </div>
+
+            <div id="field">
+              <span id="placeholder">Mensagem...</span>
+              <span id="typed"
+                ><span class="ch">c</span><span class="ch">a</span><span class="ch">r</span
+                ><span class="ch">r</span><span class="ch">o</span><span class="ch">s</span
+                ><span class="ch">s</span><span class="ch">e</span><span class="ch">l</span
+                ><span id="caret"></span
+              ></span>
+              <div id="send">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 19V5M5.5 11.5L12 5l6.5 6.5" />
+                </svg>
+              </div>
+            </div>
+
+            <div id="swap">
+              <span id="swap-label">Só troca:</span>
+              <span class="chip" id="chip-tema">tema</span>
+              <span class="chip" id="chip-cores"
+                ><span class="dot" style="background: #c6f135"></span
+                ><span class="dot" style="background: #5b3fa0"></span
+                ><span class="dot" style="background: #f2f0f5"></span>cores</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Local time 0 = 30.133s of the Reels. Speech anchors (local):
+      //   0.17 "O prompt que eu usei"   3.57 "mandar"
+      //   4.47 "carrossel" (she points up)   6.73 take jump in the footage
+      //   8.07 "tema"   8.57 "cores"
+      // The DM state is only 236px tall; at 1:1 it left the band above her
+      // head half empty, so the whole card runs 12% larger.
+      const S = 1.12;
+      gsap.set("#card", { yPercent: -50, scale: S, transformOrigin: "50% 50%" });
+      gsap.set(".glow", { xPercent: -50, yPercent: -50 });
+      gsap.set("#page-b", { opacity: 0 });
+      gsap.set(["#glow-l", "#swap", "#caret"], { opacity: 0 });
+
+      const tl = gsap.timeline({ paused: true });
+
+      // ---- A: o prompt pronto
+      tl.fromTo("#glow-p", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: "power2.out" }, 0.1);
+      tl.fromTo(
+        "#card",
+        { y: 24, opacity: 0, scale: S * 0.97 },
+        { y: 0, opacity: 1, scale: S, duration: 0.5, ease: "power3.out" },
+        0.1
+      );
+      tl.fromTo("#eyebrow", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.32, ease: "power2.out" }, 0.28);
+      tl.fromTo("#title", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: "power2.out" }, 0.38);
+      tl.fromTo("#prompt-box", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, 0.55);
+      // Lines write themselves in from the left, like the prompt being typed.
+      tl.fromTo(
+        ".line",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.32, ease: "power2.out", stagger: 0.14 },
+        0.65
+      );
+
+      // ---- A -> B on "mandar": the gift becomes the action.
+      tl.to("#page-a", { opacity: 0, y: -12, duration: 0.22, ease: "power2.in" }, 3.55);
+      tl.to("#card", { height: 236, duration: 0.42, ease: "power3.inOut" }, 3.6);
+      tl.to("#glow-p", { opacity: 0, duration: 0.5, ease: "power1.inOut" }, 3.6);
+      tl.fromTo("#glow-l", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" }, 3.65);
+      tl.set("#page-b", { opacity: 1 }, 3.75);
+      tl.fromTo("#head", { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 3.75);
+      tl.fromTo("#field", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }, 3.88);
+
+      // Caret blinks once while waiting, then stays solid while typing.
+      tl.to("#caret", { opacity: 1, duration: 0.01 }, 3.95);
+      tl.to("#caret", { opacity: 0, duration: 0.01 }, 4.2);
+      tl.to("#caret", { opacity: 1, duration: 0.01 }, 4.33);
+      tl.to("#placeholder", { opacity: 0, duration: 0.01 }, 4.45);
+
+      // "carrossel" typed so the last letter lands as she says the word.
+      document.querySelectorAll("#typed .ch").forEach((ch, i) => {
+        tl.set(ch, { display: "inline" }, 4.45 + i * 0.055);
+      });
+
+      // Sent: the field lights up lime, the guide's primary-CTA treatment.
+      tl.to("#caret", { opacity: 0, duration: 0.01 }, 5.0);
+      tl.to("#field", { backgroundColor: "#c6f135", borderColor: "#c6f135", duration: 0.18, ease: "power1.out" }, 5.0);
+      tl.to("#typed", { color: "#16141f", duration: 0.18, ease: "power1.out" }, 5.0);
+      tl.to("#send", { backgroundColor: "#16141f", duration: 0.18 }, 5.0);
+      tl.to("#send path", { stroke: "#c6f135", duration: 0.18 }, 5.0);
+      tl.to("#field", { scale: 1.05, duration: 0.12, ease: "power2.out" }, 5.0);
+      tl.to("#field", { scale: 1, duration: 0.34, ease: "back.out(2)" }, 5.12);
+
+      // ---- C on the exact frame of the take jump: the card grows and the
+      // eye follows the movement instead of the cut in her footage.
+      tl.to("#card", { height: 318, duration: 0.38, ease: "power3.out" }, 6.733);
+      tl.set("#swap", { opacity: 1 }, 6.733);
+      tl.fromTo("#swap-label", { x: -16, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 6.733);
+      tl.fromTo("#chip-tema", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2.2)" }, 8.067);
+      tl.fromTo("#chip-cores", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2.2)" }, 8.567);
+      tl.fromTo(
+        "#chip-cores .dot",
+        { scale: 0 },
+        { scale: 1, duration: 0.24, ease: "back.out(2.6)", stagger: 0.05 },
+        8.64
+      );
+
+      // No exit: the Reels loops back to the fan, and the last frame should
+      // still show the word to send.
+      window.__timelines["final-reels"] = tl;
+    </script>
+  </body>
+</html>

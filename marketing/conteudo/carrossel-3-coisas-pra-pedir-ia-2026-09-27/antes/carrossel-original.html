@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>3 coisas pra pedir à IA hoje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=block" rel="stylesheet">
+<style>
+  :root {
+    --bg: #16141F;
+    --lime: #C6F135;
+    --text: #F5F3FA;
+    --body: #B9B3CA;
+    --subtle: #7E7892;
+    --surface: #211E2C;
+    --line: #2F2B3D;
+    --pad-x: 96px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0C0B11;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    padding: 48px 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Base do slide ---------- */
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    padding: 132px var(--pad-x) 220px;
+    display: flex;
+    flex-direction: column;
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+  }
+
+  .bar {
+    width: 88px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--lime);
+    flex-shrink: 0;
+  }
+
+  h1, h2 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: 100px;
+    line-height: 1.02;
+  }
+
+  .accent { color: var(--lime); }
+
+  .body {
+    font-size: 44px;
+    line-height: 1.42;
+    color: var(--body);
+    max-width: 860px;
+    text-wrap: pretty;
+  }
+
+  .label {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+
+  /* ---------- Rodapé ---------- */
+  .footer {
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    bottom: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 36px;
+    border-top: 2px solid var(--line);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .handle { color: var(--text); }
+
+  .count {
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+  .count span { color: var(--subtle); }
+
+  /* ---------- Slide 1: capa ---------- */
+  .cover-body {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .cover .label { margin-bottom: 48px; }
+
+  .cover h1 {
+    font-size: 156px;
+    line-height: 0.98;
+    margin-bottom: 64px;
+  }
+
+  .cover .body { max-width: none; }
+
+  .swipe {
+    position: absolute;
+    right: var(--pad-x);
+    bottom: 190px;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--lime);
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- Slides 2 a 4: ideias ---------- */
+  .num {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 140px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--lime);
+  }
+
+  .idea h2 { margin: 56px 0 48px; }
+
+  .ask { margin-top: auto; }
+  .ask .label { margin-bottom: 24px; }
+
+  .bubble {
+    background: var(--surface);
+    border: 2px solid var(--line);
+    border-radius: 36px 36px 36px 8px;
+    padding: 40px 48px;
+    font-size: 38px;
+    line-height: 1.45;
+    color: var(--text);
+    text-wrap: pretty;
+  }
+
+  /* ---------- Slide 5: o segredo ---------- */
+  .secret .label { margin-top: 56px; }
+  .secret h2 { margin: 32px 0 56px; }
+
+  .note {
+    margin-top: auto;
+    padding-left: 36px;
+    border-left: 6px solid var(--lime);
+    font-size: 36px;
+    line-height: 1.45;
+    color: var(--text);
+    max-width: 820px;
+  }
+
+  /* ---------- Slide 6: chamada pra ação ---------- */
+  .cta-body {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .cta h2 {
+    font-size: 124px;
+    line-height: 1;
+    margin: 72px 0 56px;
+  }
+
+  .cta .body { max-width: none; }
+</style>
+</head>
+<body>
+
+<!-- Slide 1 — Capa -->
+<section class="slide cover">
+  <div class="bar"></div>
+  <div class="cover-body">
+    <div class="label">IA para pequenos negócios</div>
+    <h1><span class="accent">3 coisas</span><br>pra pedir<br>à IA hoje</h1>
+    <p class="body">Mesmo que você nunca tenha usado.</p>
+  </div>
+  <div class="swipe">Arrasta →</div>
+  <footer class="footer">
+    <span class="handle">@ycastrojulia</span>
+    <span class="count">01<span>/06</span></span>
+  </footer>
+</section>
+
+<!-- Slide 2 — Ideia 01 -->
+<section class="slide idea">
+  <div class="num">01</div>
+  <h2>Escrever seus posts</h2>
+  <p class="body">Sem ideia do que postar? A IA escreve legendas pra você em segundos.</p>
+  <div class="ask">
+    <div class="label">Pede assim:</div>
+    <div class="bubble">“Escreve 3 legendas curtas pro Instagram da minha padaria, divulgando o pão&nbsp;de&nbsp;queijo.”</div>
+  </div>
+  <footer class="footer">
+    <span class="handle">@ycastrojulia</span>
+    <span class="count">02<span>/06</span></span>
+  </footer>
+</section>
+
+<!-- Slide 3 — Ideia 02 -->
+<section class="slide idea">
+  <div class="num">02</div>
+  <h2>Responder clientes</h2>
+  <p class="body">Cliente reclamou e você não sabe o que dizer? A IA te ajuda a responder com calma e educação.</p>
+  <div class="ask">
+    <div class="label">Pede assim:</div>
+    <div class="bubble">“Me ajuda a responder um cliente chateado com o atraso na entrega. Quero ser gentil e oferecer 10% de desconto.”</div>
+  </div>
+  <footer class="footer">
+    <span class="handle">@ycastrojulia</span>
+    <span class="count">03<span>/06</span></span>
+  </footer>
+</section>
+
+<!-- Slide 4 — Ideia 03 -->
+<section class="slide idea">
+  <div class="num">03</div>
+  <h2>Criar promoções</h2>
+  <p class="body">Semana fraca? Peça ideias de promoção que cabem no seu bolso.</p>
+  <div class="ask">
+    <div class="label">Pede assim:</div>
+    <div class="bubble">“Me dá 5 ideias de promoção baratas pra atrair clientes pro meu salão de beleza.”</div>
+  </div>
+  <footer class="footer">
+    <span class="handle">@ycastrojulia</span>
+    <span class="count">04<span>/06</span></span>
+  </footer>
+</section>
+
+<!-- Slide 5 — O segredo -->
+<section class="slide secret">
+  <div class="bar"></div>
+  <div class="label">O segredo</div>
+  <h2>Peça como se fosse pra um <span class="accent">funcionário novo</span></h2>
+  <p class="body">Conte o que é seu negócio, o que você quer e pra quem é. Quanto mais detalhe, melhor a resposta.</p>
+  <p class="note">Funciona no ChatGPT, no Gemini ou no Claude. Todos têm versão grátis.</p>
+  <footer class="footer">
+    <span class="handle">@ycastrojulia</span>
+    <span class="count">05<span>/06</span></span>
+  </footer>
+</section>
+
+<!-- Slide 6 — Chamada pra ação -->
+<section class="slide cta">
+  <div class="cta-body">
+    <div class="bar"></div>
+    <h2>Me segue pra mais dicas de <span class="accent">IA</span></h2>
+    <p class="body">Compartilha este post com quem tem um negócio.</p>
+  </div>
+  <footer class="footer">
+    <span class="handle">@ycastrojulia</span>
+    <span class="count">06<span>/06</span></span>
+  </footer>
+</section>
+
+</body>
+</html>

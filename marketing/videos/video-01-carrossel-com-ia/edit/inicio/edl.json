@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "sources": {
+    "inicio": "/Users/juliaycastro/Downloads/inicio.mov"
+  },
+  "ranges": [
+    {
+      "source": "inicio",
+      "start": 0.34,
+      "end": 19.06,
+      "beat": "HOOK+PROMESSA",
+      "quote": "Esse carrossel aqui eu não fiz com o Canva... pra ele te entregar um carrossel.",
+      "reason": "Bloco inteiro mantido. Entrada aparada em 0.34s (0.05s de pad antes da primeira palavra em 0.39s)."
+    },
+    {
+      "source": "inicio",
+      "start": 19.42,
+      "end": 34.55,
+      "beat": "OBJECAO+BONUS+CTA",
+      "quote": "Isso mesmo que você nunca tenha utilizado a ferramenta antes... vai sair o teu carrossel perfeito.",
+      "reason": "Bloco inteiro mantido, incluindo a remoção de objeção. Pausa do meio fechada de 0.56s para ~0.15s. Cauda aparada com 0.10s de pad após a última palavra."
+    }
+  ],
+  "subtitles": null
+}

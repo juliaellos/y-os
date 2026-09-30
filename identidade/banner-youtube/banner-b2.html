@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  Banner do canal, variação B2: "A IA trabalhando junto com você no marketing".
+  Conceito: uma tela de edição a dois. O título é a peça em edição, com dois
+  cursores com nome (Você e IA), como no Google Docs ou no Figma.
+  "Junto com você" fica marcado como seleção. Tudo o que é texto, logo ou
+  cursor fica dentro de .safe (1235 x 338, centro).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #16141F; }
+
+  .banner {
+    width: 2560px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    color: #F2F0F5;
+    background: radial-gradient(ellipse 60% 55% at 50% 50%, #1c1929 0%, #16141F 62%, #121019 100%);
+  }
+
+  /* ---------- FUNDO: tela de pontos ---------- */
+  .dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(242,240,245,0.12) 1.6px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: 20px 20px;
+    -webkit-mask-image: radial-gradient(ellipse 62% 70% at 50% 50%, #000 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 62% 70% at 50% 50%, #000 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
+  }
+  .light {
+    position: absolute;
+    width: 2200px;
+    height: 1300px;
+    left: 180px;
+    top: 70px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(91,63,160,0.30) 0%, rgba(91,63,160,0.10) 45%, rgba(91,63,160,0) 70%);
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.1;
+    background-size: 256px 256px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- ÁREA SEGURA ---------- */
+  .safe {
+    position: absolute;
+    left: 662.5px;
+    top: 551px;
+    width: 1235px;
+    height: 338px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+  }
+  .block { position: relative; width: 100%; }
+
+  h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+  }
+  .hl {
+    display: inline-block;
+    background: #C6F135;
+    color: #16141F;
+    line-height: 0.96;
+    padding: 0.03em 0.1em 0.07em;
+    margin: 0 -0.02em;
+    border-radius: 0.07em;
+  }
+
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(242,240,245,0.14);
+  }
+  .foot img { height: 58px; display: block; margin-left: -7px; }
+  .foot .cadence {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: rgba(242,240,245,0.72);
+  }
+
+  /* ---------- CURSORES ---------- */
+  .cursor { position: absolute; width: 0; height: 0; }
+  .cursor svg { position: absolute; left: -4px; top: -4px; width: 40px; height: 48px; overflow: visible; }
+  .cursor .name {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1;
+    padding: 10px 18px 11px;
+    border-radius: 9px;
+    white-space: nowrap;
+  }
+  .cursor.you svg path { fill: #C6F135; }
+  .cursor.you .name { background: #C6F135; color: #16141F; }
+  .cursor.ai svg path { fill: #7A5BD0; }
+  .cursor.ai .name { background: #7A5BD0; color: #F2F0F5; }
+  .cursor svg path { stroke: #F2F0F5; stroke-width: 2.5; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+
+  <div class="banner grain">
+    <div class="light"></div>
+    <div class="dots"></div>
+
+    <div class="safe">
+      <div class="block">
+        <h1>A IA trabalhando <span class="hl" id="hl1">junto</span><br><span class="hl" id="hl2">com você</span><span id="end2"> no marketing</span></h1>
+        <div class="foot">
+          <img src="../logo-claro.png" alt="Júlia y Castro">
+          <span class="cadence">Vídeo novo toda semana</span>
+        </div>
+
+        <div class="cursor ai" id="cur-ai">
+          <svg viewBox="0 0 30 36"><path d="M3 3 L3 30 L10 23.5 L15 34 L20 31.6 L15 21.4 L25 21.4 Z"/></svg>
+          <span class="name">IA</span>
+        </div>
+        <div class="cursor you" id="cur-you">
+          <svg viewBox="0 0 30 36"><path d="M3 3 L3 30 L10 23.5 L15 34 L20 31.6 L15 21.4 L25 21.4 Z"/></svg>
+          <span class="name">Você</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Os dois cursores numa coluna à direita do título: a IA na altura da
+  // linha 1 e Você na altura da linha 2.
+  document.fonts.ready.then(() => {
+    const block = document.querySelector('.block').getBoundingClientRect();
+    const l1 = document.getElementById('hl1').getBoundingClientRect();
+    const l2 = document.getElementById('end2').getBoundingClientRect();
+    const x = Math.max(l1.right, l2.right) - block.left + 24;
+    const put = (id, top) => {
+      const el = document.getElementById(id);
+      el.style.left = x + 'px';
+      el.style.top = top + 'px';
+    };
+    put('cur-ai', l1.top - block.top - 6);
+    put('cur-you', l2.top - block.top + 18);
+    document.body.dataset.ready = '1';
+  });
+</script>
+</body>
+</html>

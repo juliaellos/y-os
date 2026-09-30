@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <!--
   Banner do canal Júlia y Castro no YouTube. 2560 x 1440.
-  Versão pela URL: banner.html?v=a ou banner.html?v=b (sem parâmetro = a).
+  Versão pela URL: banner.html?v=a, ?v=b ou ?v=c (sem parâmetro = a).
   Tudo o que é texto ou logo fica dentro de .safe (1235 x 338, centro),
   a única área que aparece em todos os aparelhos. O resto é fundo.
 -->
@@ -53,27 +53,46 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Quadros de post nas laterais, fora da área segura. Mesma linguagem
-     do slide 2 do carrossel: vazios (tracejado) à esquerda, prontos à direita. */
-  .frames { position: absolute; top: 0; height: 1440px; z-index: 2; }
-  .frames.left { left: 0; width: 640px; -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); }
-  .frames.right { right: 0; width: 640px; -webkit-mask-image: linear-gradient(270deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); mask-image: linear-gradient(270deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); }
-  .frame {
+  /* Peças de marketing em rascunho nas laterais, fora da área segura e fora
+     do recorte do celular. Mostram as frentes do canal, não só post:
+     esquerda = post, resultado do Google com avaliação, email;
+     direita = relatório, automação, anúncio. */
+  .pieces { position: absolute; top: 0; height: 1440px; width: 640px; z-index: 2; }
+  .pieces.left { left: 0; -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); mask-image: linear-gradient(90deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); }
+  .pieces.right { right: 0; -webkit-mask-image: linear-gradient(270deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); mask-image: linear-gradient(270deg, rgba(0,0,0,0.35), #000 55%, rgba(0,0,0,0.6)); }
+  .card {
     position: absolute;
-    width: 172px;
-    height: 215px;
+    border: 2px solid rgba(242,240,245,0.13);
+    background: rgba(242,240,245,0.045);
     border-radius: 12px;
-    border: 2px dashed rgba(242,240,245,0.2);
-    padding: 22px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 11px;
   }
-  .frame.done { border: 2px solid rgba(242,240,245,0.13); background: rgba(242,240,245,0.045); }
-  .frame i { display: block; height: 11px; border-radius: 4px; background: rgba(242,240,245,0.15); }
-  .frame i.s { width: 62%; }
-  .frame i.img { height: 62px; background: rgba(242,240,245,0.07); margin-top: 8px; }
-  .frame i.cur { width: 3px; height: 30px; background: rgba(242,240,245,0.6); border-radius: 0; }
+  .card i { display: block; flex: none; height: 10px; border-radius: 4px; background: rgba(242,240,245,0.15); }
+  .card i.s { width: 58%; }
+  .card i.xs { width: 40%; height: 8px; }
+  .card i.t { width: 86%; height: 13px; background: rgba(242,240,245,0.2); }
+  .card i.img { height: 92px; background: rgba(242,240,245,0.07); }
+  .card i.img.sm { height: 78px; }
+  .card hr { border: 0; height: 1px; background: rgba(242,240,245,0.1); }
+  .card .row { display: flex; align-items: center; gap: 10px; }
+  .card .stack { flex: 1; display: flex; flex-direction: column; gap: 7px; }
+  .card .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(242,240,245,0.15); }
+  .card .avatar { width: 30px; height: 30px; border-radius: 50%; background: rgba(242,240,245,0.12); flex: none; }
+  .card .avatar.sm { width: 22px; height: 22px; }
+  .card .pill { width: 52px; height: 18px; border-radius: 999px; border: 1.5px solid rgba(242,240,245,0.22); flex: none; margin-left: auto; }
+  .card .btn { width: 96px; height: 24px; border-radius: 6px; background: rgba(242,240,245,0.12); }
+  .card .btn.full { width: 100%; height: 26px; }
+  .card .stars { display: flex; gap: 5px; }
+  .card .stars svg { width: 17px; height: 17px; fill: rgba(242,240,245,0.3); }
+  .card .bars { display: flex; align-items: flex-end; gap: 12px; height: 78px; padding: 0 4px; border-bottom: 2px solid rgba(242,240,245,0.15); }
+  .card .bars b { flex: 1; border-radius: 3px 3px 0 0; background: rgba(242,240,245,0.14); }
+  .card .flow { display: flex; align-items: center; height: 66px; }
+  .card .node { width: 40px; height: 40px; flex: none; border-radius: 10px; border: 2px solid rgba(242,240,245,0.22); background: rgba(242,240,245,0.05); }
+  .card .link { flex: 1; height: 2px; margin: 0 6px; position: relative; background: rgba(242,240,245,0.2); }
+  .card .link::after { content: ""; position: absolute; right: -2px; top: -5px; border-left: 9px solid rgba(242,240,245,0.3); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
 
   /* ---------- ÁREA SEGURA ---------- */
   .safe {
@@ -125,15 +144,41 @@
     <div class="grid"></div>
     <div class="glow halo" id="halo" style="width: 1500px; height: 620px;"></div>
 
-    <div class="frames left">
-      <div class="frame" style="left: 64px; top: 626px;"></div>
-      <div class="frame" style="left: 262px; top: 592px;"><i></i><i class="cur"></i></div>
-      <div class="frame" style="left: 460px; top: 640px;"><i></i><i class="s"></i></div>
+    <div class="pieces left">
+      <!-- post -->
+      <div class="card" style="left: 56px; top: 598px; width: 168px; height: 214px;">
+        <i class="img"></i>
+        <div class="row"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <i></i><i class="s"></i>
+      </div>
+      <!-- resultado do Google com avaliação -->
+      <div class="card" style="left: 262px; top: 548px; width: 236px; height: 150px;">
+        <i class="xs"></i><i class="t"></i>
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8l-6.3 3.7 1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8l-6.3 3.7 1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8l-6.3 3.7 1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8l-6.3 3.7 1.7-7.3L2 9.5l7.1-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7.3L12 17.8l-6.3 3.7 1.7-7.3L2 9.5l7.1-.6z"/></svg></div>
+        <i></i><i class="s"></i>
+      </div>
+      <!-- email -->
+      <div class="card" style="left: 262px; top: 724px; width: 236px; height: 158px;">
+        <div class="row"><span class="avatar"></span><div class="stack"><i class="s"></i><i class="xs"></i></div></div>
+        <hr><i></i><div class="btn"></div>
+      </div>
     </div>
-    <div class="frames right">
-      <div class="frame done" style="right: 460px; top: 596px;"><i></i><i class="s"></i><i class="img"></i><i></i></div>
-      <div class="frame done" style="right: 262px; top: 636px;"><i class="img"></i><i></i><i class="s"></i></div>
-      <div class="frame done" style="right: 64px; top: 600px;"><i></i><i></i><i class="s"></i><i class="img"></i></div>
+    <div class="pieces right">
+      <!-- relatório -->
+      <div class="card" style="right: 262px; top: 548px; width: 236px; height: 150px;">
+        <i class="xs"></i>
+        <div class="bars"><b style="height: 30%"></b><b style="height: 46%"></b><b style="height: 38%"></b><b style="height: 60%"></b><b style="height: 74%"></b><b style="height: 94%"></b></div>
+      </div>
+      <!-- automação -->
+      <div class="card" style="right: 262px; top: 724px; width: 236px; height: 158px;">
+        <div class="flow"><span class="node"></span><span class="link"></span><span class="node"></span><span class="link"></span><span class="node"></span></div>
+        <i></i><i class="s"></i>
+      </div>
+      <!-- anúncio -->
+      <div class="card" style="right: 56px; top: 598px; width: 168px; height: 214px;">
+        <div class="row"><span class="avatar sm"></span><i class="xs" style="flex: 1;"></i><span class="pill"></span></div>
+        <i class="img sm"></i><i class="s"></i><div class="btn full"></div>
+      </div>
     </div>
 
     <div class="safe">
@@ -149,7 +194,8 @@
 <script>
   const PROMISES = {
     a: { size: 115, html: 'Marketing com IA,<br><span class="lime">com a sua cara</span>' },
-    b: { size: 112, html: 'A IA trabalhando <span class="lime">junto</span><br><span class="lime">com você</span> no marketing' }
+    b: { size: 112, html: 'A IA trabalhando <span class="lime">junto</span><br><span class="lime">com você</span> no marketing' },
+    c: { size: 84, html: 'O marketing da semana inteira,<br>feito <span class="lime">em minutos</span> com IA' }
   };
   const v = new URLSearchParams(location.search).get('v');
   const p = PROMISES[v] || PROMISES.a;

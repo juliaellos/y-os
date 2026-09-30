@@ -1,0 +1,159 @@
+1
+00:00:00,000 --> 00:00:01,050
+Esse carrossel aqui
+
+2
+00:00:01,050 --> 00:00:02,250
+eu não fiz com o Canva
+
+3
+00:00:02,250 --> 00:00:03,570
+eu não contratei designer
+
+4
+00:00:03,570 --> 00:00:04,410
+eu fiz tudo com
+
+5
+00:00:04,410 --> 00:00:05,500
+inteligência artificial
+
+6
+00:00:05,500 --> 00:00:06,370
+com o Claude
+
+7
+00:00:06,370 --> 00:00:07,190
+levou mais ou menos
+
+8
+00:00:07,190 --> 00:00:08,150
+10 minutos
+
+9
+00:00:08,370 --> 00:00:09,360
+Vocês provavelmente
+
+10
+00:00:09,360 --> 00:00:10,130
+já vieram aqui
+
+11
+00:00:10,130 --> 00:00:11,340
+no Gemini, no ChatGPT
+
+12
+00:00:11,340 --> 00:00:12,240
+pediram para eles
+
+13
+00:00:12,240 --> 00:00:13,330
+criarem um carrossel
+
+14
+00:00:13,330 --> 00:00:13,860
+para vocês
+
+15
+00:00:13,860 --> 00:00:14,460
+e no final
+
+16
+00:00:14,460 --> 00:00:15,790
+eles entregaram textos
+
+17
+00:00:15,790 --> 00:00:17,020
+que tu precisou copiar
+
+18
+00:00:17,020 --> 00:00:17,860
+levar para o Canva
+
+19
+00:00:17,860 --> 00:00:18,820
+e fazer toda a edição
+
+20
+00:00:18,820 --> 00:00:20,030
+do carrossel manual
+
+21
+00:00:20,030 --> 00:00:20,750
+Com o Claude Code
+
+22
+00:00:20,750 --> 00:00:21,630
+isso é diferente
+
+23
+00:00:21,630 --> 00:00:22,470
+porque ele já está
+
+24
+00:00:22,470 --> 00:00:23,300
+conectado direto
+
+25
+00:00:23,300 --> 00:00:24,640
+na pasta do teu computador
+
+26
+00:00:24,640 --> 00:00:25,580
+tu vai fazer o pedido
+
+27
+00:00:25,580 --> 00:00:26,020
+para ele
+
+28
+00:00:26,020 --> 00:00:26,750
+e no final ele vai
+
+29
+00:00:26,750 --> 00:00:27,410
+te entregar
+
+30
+00:00:27,410 --> 00:00:28,170
+as imagens prontas
+
+31
+00:00:28,170 --> 00:00:28,830
+para te postar
+
+32
+00:00:28,830 --> 00:00:30,133
+no teu Instagram
+
+33
+00:00:30,250 --> 00:00:31,370
+O prompt que eu usei
+
+34
+00:00:31,370 --> 00:00:32,830
+ele já está pronto para ti
+
+35
+00:00:32,830 --> 00:00:34,070
+você só precisa mandar
+
+36
+00:00:34,070 --> 00:00:35,170
+a palavra carrossel
+
+37
+00:00:35,170 --> 00:00:36,700
+na minha DM do Instagram
+
+38
+00:00:36,700 --> 00:00:38,110
+só vai precisar alterar
+
+39
+00:00:38,110 --> 00:00:39,020
+o tema e as cores
+
+40
+00:00:39,020 --> 00:00:40,233
+do teu carrossel
